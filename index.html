@@ -1,648 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
+    html {
+      scroll-behavior: smooth;
     }
     body {
-      margin: 0;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #1e1f4d, #3e3ea0);
-      color: #f0f0f5;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    a {
-      color: #8ab4f8;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
-    a:hover,
-    a:focus {
-      color: #d1d9ff;
-      outline: none;
-    }
-    h1, h2, h3 {
-      margin: 0 0 1rem 0;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    h1 {
-      font-size: 3.2rem;
-      line-height: 1.1;
+    section {
+      padding: 5rem 0;
     }
     h2 {
-      font-size: 2.5rem;
-      border-bottom: 2px solid #5a5ace;
-      padding-bottom: 0.3rem;
-      max-width: max-content;
-      margin-bottom: 2rem;
-    }
-    h3 {
-      font-size: 1.5rem;
-      color: #c8c8ff;
+      font-size: 2.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
     }
     p {
-      line-height: 1.6;
-      color: #d6d6ef;
-      font-weight: 400;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(30,31,77,0.85);
-      backdrop-filter: saturate(180%) blur(20px);
-      z-index: 1000;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.2);
-    }
-    nav .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a.logo {
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #b0b0ff;
-      letter-spacing: 0.05em;
-    }
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #b0b0ff;
-      padding: 0.5rem;
-      border-radius: 4px;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      background: #5a5ace;
-      color: #fff;
-      outline: none;
-    }
-
-    /* Sections */
-    section {
-      padding: 6rem 0 8rem;
-      position: relative;
-      scroll-margin-top: 80px;
-    }
-    section:nth-child(even) {
-      background: linear-gradient(135deg, #272864, #3e3ea0);
-      box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
-    }
-
-    /* Hero */
-    #hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
       text-align: center;
-      background: linear-gradient(135deg, #3a3ab8, #6a69ff);
-      box-shadow: inset 0 0 140px rgba(0,0,0,0.3);
-    }
-    #hero h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #a99eff, #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInMoveUp 1.4s ease forwards;
-      opacity: 0;
-    }
-    #hero p {
-      font-size: 1.4rem;
-      color: #c8c8ffdd;
       margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInMoveUp 1.6s ease forwards;
-      opacity: 0;
     }
-    #hero .btn-primary {
-      background: #756fff;
-      color: white;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-weight: 600;
-      font-size: 1.2rem;
+    .btn-primary {
+      display: inline-block;
+      background: white;
+      color: #6a11cb;
+      padding: 0.75rem 1.5rem;
       border-radius: 9999px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(117,111,255,0.6);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInMoveUp 1.8s ease forwards;
-      opacity: 0;
-    }
-    #hero .btn-primary:hover,
-    #hero .btn-primary:focus {
-      background: #5a5ace;
-      box-shadow: 0 12px 28px rgba(90,90,206,0.75);
-      outline: none;
-    }
-
-    @keyframes fadeInMoveUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* About */
-    #about {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #about h2 {
-      margin-bottom: 2rem;
-    }
-    #about p {
-      font-size: 1.2rem;
-      color: #d1d1ffcc;
-      line-height: 1.75;
-    }
-
-    /* Skills */
-    #skills {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #skills h2 {
-      margin-bottom: 3rem;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
-      gap: 1.8rem;
-      justify-items: center;
-    }
-    .skill {
-      position: relative;
-      background: #4c4caa33;
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
       font-weight: 600;
-      color: #b8b8ff;
-      cursor: default;
-      user-select: none;
-      transition: background 0.3s ease, color 0.3s ease;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
-      outline-offset: 4px;
+      transition: background 0.3s ease;
     }
-    .skill:hover,
-    .skill:focus {
-      background: #756fffdd;
-      color: #fff;
-      box-shadow: 0 6px 24px rgba(117,111,255,0.8);
-      outline: none;
+    .btn-primary:hover {
+      background: #dbeafe;
     }
-    .skill-tooltip {
-      position: absolute;
-      bottom: 130%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #756fffdd;
-      color: white;
-      padding: 0.5rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      box-shadow: 0 6px 18px rgba(117,111,255,0.8);
-      z-index: 10;
-    }
-    .skill:hover .skill-tooltip,
-    .skill:focus .skill-tooltip {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Projects */
-    #projects {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    #projects h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-      gap: 2.5rem;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
     .project-card {
-      background: #292963cc;
-      border-radius: 18px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
       padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      outline-offset: 4px;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .project-card:focus,
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(117,111,255,0.7);
-      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-10px);
     }
-    .project-icon {
-      width: 40px;
-      height: 40px;
-      color: #8a8aff;
-      margin-bottom: 1rem;
-      flex-shrink: 0;
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #93c5fd;
+      font-weight: bold;
     }
-    .project-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      color: #d1d1ff;
-    }
-    .project-desc {
-      flex-grow: 1;
-      font-size: 1rem;
-      color: #bbbcee;
-      margin-bottom: 1.2rem;
-      line-height: 1.4;
-    }
-    .project-links {
-      font-size: 0.9rem;
-      color: #8ab4f8;
-      display: flex;
-      gap: 1rem;
-    }
-    .project-links a:hover,
-    .project-links a:focus {
-      color: #d1d9ff;
-      outline: none;
-    }
-
-    /* Project Detail Section */
-    #project-detail {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #2e2e78cc;
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      box-shadow: 0 0 40px rgba(117,111,255,0.6);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(40px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      margin-bottom: 6rem;
-      position: relative;
-    }
-    #project-detail.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-    #project-detail h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-    #project-detail p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ddd;
-      margin-bottom: 1.8rem;
-    }
-    #project-detail .detail-links a {
-      margin-right: 1.5rem;
-      color: #8ab4f8;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    #project-detail .detail-links a:hover,
-    #project-detail .detail-links a:focus {
-      color: #d1d9ff;
-      outline: none;
-    }
-    #project-detail .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      background: transparent;
-      border: none;
-      color: #bbbcee;
-      font-size: 1.8rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    #project-detail .close-btn:hover,
-    #project-detail .close-btn:focus {
-      color: #fff;
-      outline: none;
-    }
-
-    /* Contact */
-    #contact {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #contact h2 {
-      margin-bottom: 1.5rem;
-    }
-    #contact p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #d1d1ffcc;
-    }
-    #contact .btn-primary {
-      background: #756fff;
-      color: white;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 9999px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(117,111,255,0.6);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      margin-bottom: 2.5rem;
-    }
-    #contact .btn-primary:hover,
-    #contact .btn-primary:focus {
-      background: #5a5ace;
-      box-shadow: 0 12px 28px rgba(90,90,206,0.75);
-      outline: none;
-    }
-    #contact .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      font-size: 2rem;
-      color: #a6a6f7;
-    }
-    #contact .social-icons a {
-      transition: color 0.3s ease;
-    }
-    #contact .social-icons a:hover,
-    #contact .social-icons a:focus {
-      color: #fff;
-      outline: none;
-    }
-
-    /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      color: #7777aa;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(117,111,255,0.2);
-      background: #1a1a3c;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      #hero h1 {
-        font-size: 2.8rem;
-      }
-      #hero p {
-        font-size: 1rem;
-      }
-      .project-card {
-        padding: 1.5rem;
-      }
-      #project-detail {
-        padding: 2rem 1.5rem;
-      }
-      nav ul {
-        gap: 1rem;
-      }
+      padding: 2rem 0;
+      background: rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
-  <nav role="navigation" aria-label="Primary navigation">
-    <div class="nav-container container">
-      <a href="#hero" class="logo" tabindex="0">YourName</a>
-      <ul>
-        <li><a href="#about" tabindex="0">About</a></li>
-        <li><a href="#skills" tabindex="0">Skills</a></li>
-        <li><a href="#projects" tabindex="0">Projects</a></li>
-        <li><a href="#contact" tabindex="0">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <section id="hero" aria-label="Introduction">
-    <div class="container">
-      <h1 data-aos="fade-up" tabindex="0">Hi, I'm Your Name</h1>
-      <p data-aos="fade-up" data-aos-delay="150" tabindex="0">
-        A frontend developer crafting modern, interactive web experiences with passion and precision.
-      </p>
-      <button class="btn-primary" data-aos="fade-up" data-aos-delay="300" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" aria-label="View my projects">View Projects</button>
+  <!-- Hero Section -->
+  <section id="hero" class="text-center">
+    <div class="container" data-aos="fade-up">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Your Name</h1>
+      <p class="text-xl md:text-2xl mb-6">A frontend developer crafting modern, interactive web experiences.</p>
+      <a href="#projects" class="btn-primary">View Projects</a>
     </div>
   </section>
 
-  <section id="about" aria-label="About me" tabindex="0">
-    <div class="container">
-      <h2 data-aos="fade-right">About Me</h2>
-      <p data-aos="fade-right" data-aos-delay="100">
-        I am a passionate developer with over 5 years of experience building responsive and accessible web applications. I specialize in JavaScript frameworks, modern CSS, and creating seamless user experiences. When I'm not coding, I enjoy photography and hiking.
-      </p>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I’m a creative web developer with a passion for clean UI/UX, smooth animations, and responsive design. With experience in React, Tailwind CSS, and modern frontend technologies, I love bringing ideas to life in the browser.</p>
     </div>
   </section>
 
-  <section id="skills" aria-label="My skills" tabindex="0">
-    <div class="container">
-      <h2 data-aos="fade-left">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill" tabindex="0" aria-describedby="tooltip-js">
-          JavaScript
-          <div role="tooltip" id="tooltip-js" class="skill-tooltip">Experienced in ES6+, React, and Node.js.</div>
+  <!-- Skills Section -->
+  <section id="skills" class="bg-white bg-opacity-10 rounded-xl">
+    <div class="container" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-lg font-medium">
+        <div class="hover:scale-110 transition">HTML</div>
+        <div class="hover:scale-110 transition">CSS & Tailwind</div>
+        <div class="hover:scale-110 transition">JavaScript</div>
+        <div class="hover:scale-110 transition">React</div>
+        <div class="hover:scale-110 transition">Next.js</div>
+        <div class="hover:scale-110 transition">Framer Motion</div>
+        <div class="hover:scale-110 transition">Firebase</div>
+        <div class="hover:scale-110 transition">Git & GitHub</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="project-card">
+          <h3 class="text-xl font-semibold">Portfolio Website</h3>
+          <p>A personal portfolio built with React, Tailwind, and Framer Motion.</p>
+          <a href="projects/portfolio.html" class="read-more">Read More →</a>
         </div>
-        <div class="skill" tabindex="0" aria-describedby="tooltip-css">
-          CSS &amp; Tailwind
-          <div role="tooltip" id="tooltip-css" class="skill-tooltip">Expert in responsive design and animations.</div>
+        <div class="project-card">
+          <h3 class="text-xl font-semibold">Weather App</h3>
+          <p>Live weather updates using OpenWeatherMap API with responsive design.</p>
+          <a href="projects/weather.html" class="read-more">Read More →</a>
         </div>
-        <div class="skill" tabindex="0" aria-describedby="tooltip-react">
-          React
-          <div role="tooltip" id="tooltip-react" class="skill-tooltip">Building scalable SPA with hooks and context API.</div>
-        </div>
-        <div class="skill" tabindex="0" aria-describedby="tooltip-node">
-          Node.js
-          <div role="tooltip" id="tooltip-node" class="skill-tooltip">Backend development and REST APIs.</div>
-        </div>
-        <div class="skill" tabindex="0" aria-describedby="tooltip-git">
-          Git &amp; GitHub
-          <div role="tooltip" id="tooltip-git" class="skill-tooltip">Version control and collaborative workflows.</div>
-        </div>
-        <div class="skill" tabindex="0" aria-describedby="tooltip-accessibility">
-          Accessibility
-          <div role="tooltip" id="tooltip-accessibility" class="skill-tooltip">Creating inclusive and usable interfaces.</div>
+        <div class="project-card">
+          <h3 class="text-xl font-semibold">Task Manager</h3>
+          <p>Full CRUD task manager using Firebase with modern UI interactions.</p>
+          <a href="projects/taskmanager.html" class="read-more">Read More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" aria-label="My projects" tabindex="0">
-    <div class="container">
-      <h2 data-aos="fade-up">Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" tabindex="0" role="button" aria-pressed="false" aria-label="Open project Portfolio Website details" data-project="portfolio" >
-          <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20v-4M18 20v-8M9 4h6a2 2 0 012 2v4H7V6a2 2 0 012-2z"/></svg>
-          <div class="project-title">Portfolio Website</div>
-          <div class="project-desc">Built with React, Tailwind, and Framer Motion for smooth animations.</div>
-          <div class="project-links">
-            <a href="https://your-portfolio-demo.com" target="_blank" rel="noopener">Live Demo</a>
-            <a href="https://github.com/yourusername/portfolio" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card" tabindex="0" role="button" aria-pressed="false" aria-label="Open project Weather App details" data-project="weather" >
-          <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <div class="project-title">Weather App</div>
-          <div class="project-desc">Real-time weather updates using external APIs and responsive design.</div>
-          <div class="project-links">
-            <a href="https://your-weatherapp-demo.com" target="_blank" rel="noopener">Live Demo</a>
-            <a href="https://github.com/yourusername/weatherapp" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card" tabindex="0" role="button" aria-pressed="false" aria-label="Open project Task Manager details" data-project="taskmanager" >
-          <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v6a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h11"/></svg>
-          <div class="project-title">Task Manager</div>
-          <div class="project-desc">Full CRUD application with Firebase and sleek UI interactions.</div>
-          <div class="project-links">
-            <a href="https://your-taskmanager-demo.com" target="_blank" rel="noopener">Live Demo</a>
-            <a href="https://github.com/yourusername/taskmanager" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="project-detail" aria-live="polite" aria-atomic="true" tabindex="0">
-    <button class="close-btn" aria-label="Close project details">&times;</button>
-    <h3>Project Title</h3>
-    <p>Project detailed description goes here.</p>
-    <div class="detail-links">
-      <a href="#" target="_blank" rel="noopener">Live Demo</a>
-      <a href="#" target="_blank" rel="noopener">GitHub Repo</a>
-    </div>
-  </section>
-
-  <section id="contact" aria-label="Contact me" tabindex="0">
-    <div class="container">
-      <h2 data-aos="fade-up">Get in Touch</h2>
-      <p data-aos="fade-up" data-aos-delay="100">Feel free to reach out for collaborations, projects, or just a friendly chat.</p>
-      <a href="mailto:your.email@example.com" class="btn-primary" data-aos="fade-up" data-aos-delay="200" aria-label="Send email">Email Me</a>
-      <div class="social-icons" data-aos="fade-up" data-aos-delay="300">
-        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px"><path stroke-linejoin="round" stroke-linecap="round" d="M12 2a10 10 0 00-3.16 19.49c.5.1.68-.22.68-.49v-1.73c-2.77.6-3.35-1.34-3.35-1.34-.45-1.17-1.1-1.48-1.1-1.48-.9-.62.07-.6.07-.6 1 .07 1.53 1.04 1.53 1.04.89 1.53 2.34 1.09 2.91.83a2.3 2.3 0 01.68-1.44c-2.22-.25-4.56-1.12-4.56-5A4 4 0 018.09 6.8a3.7 3.7 0 01.1-2.73s.84-.27 2.75 1.02a9.4 9.4 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.45 1.15.48 2.45.1 2.73a4 4 0 011.07 2.8c0 3.89-2.34 4.75-4.57 5a2.5 2.5 0 01.71 1.95v2.89c0 .27.18.59.69.49A10 10 0 0012 2z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-        </a>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container text-center" data-aos="fade-up">
+      <h2>Contact Me</h2>
+      <p>Let’s build something amazing together! Reach out for collaborations or freelance work.</p>
+      <a href="mailto:your.email@example.com" class="btn-primary">Send Email</a>
+      <div class="social-icons mt-6">
+        <a href="#" aria-label="GitHub"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="32" /></a>
+        <a href="#" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="32" /></a>
+        <a href="#" aria-label="Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" width="32" /></a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      &copy; 2025 Your Name. Crafted with 💜 and clean code.
-    </div>
+    &copy; 2025 Your Name. Built with React, Tailwind CSS, and 💜.
   </footer>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, duration: 1000 });
-
-    // Project detail popup logic
-    const projectCards = document.querySelectorAll('.project-card');
-    const projectDetail = document.getElementById('project-detail');
-    const detailTitle = projectDetail.querySelector('h3');
-    const detailDesc = projectDetail.querySelector('p');
-    const detailLinks = projectDetail.querySelectorAll('a');
-    const closeBtn = projectDetail.querySelector('.close-btn');
-
-    const projectInfo = {
-      portfolio: {
-        title: "Portfolio Website",
-        desc: "A clean and interactive portfolio site built with React, Tailwind CSS, and Framer Motion for sleek animations. Designed to showcase skills, projects, and provide contact options, all while being fully responsive.",
-        demo: "https://your-portfolio-demo.com",
-        repo: "https://github.com/yourusername/portfolio"
-      },
-      weather: {
-        title: "Weather App",
-        desc: "A dynamic weather app that fetches real-time data from OpenWeather API. It supports responsive design, search by location, and dark mode toggle. Developed using React and styled with Tailwind.",
-        demo: "https://your-weatherapp-demo.com",
-        repo: "https://github.com/yourusername/weatherapp"
-      },
-      taskmanager: {
-        title: "Task Manager",
-        desc: "A task management app with full CRUD capabilities using Firebase for realtime database and authentication. UI is built for intuitive task tracking and productivity, with responsive layouts and animated transitions.",
-        demo: "https://your-taskmanager-demo.com",
-        repo: "https://github.com/yourusername/taskmanager"
-      }
-    };
-
-    projectCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const key = card.getAttribute('data-project');
-        const info = projectInfo[key];
-        detailTitle.textContent = info.title;
-        detailDesc.textContent = info.desc;
-        detailLinks[0].href = info.demo;
-        detailLinks[1].href = info.repo;
-        projectDetail.classList.add('visible');
-        projectDetail.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      projectDetail.classList.remove('visible');
-    });
   </script>
 </body>
 </html>
