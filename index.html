@@ -11,12 +11,17 @@
       --light: #f9f9f9;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: var(--light);
       color: var(--primary);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -35,6 +40,7 @@
       margin: 0;
       font-size: 1.5rem;
       font-weight: 600;
+      animation: fadeIn 1s ease-in;
     }
 
     nav a {
@@ -51,8 +57,9 @@
 
     section {
       padding: 4rem 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
+      animation: fadeUp 1s ease;
     }
 
     .title {
@@ -68,7 +75,12 @@
       background: #fff;
       padding: 1rem 1.5rem;
       border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .entry:hover {
+      transform: translateY(-4px);
     }
 
     .entry h3 {
@@ -82,6 +94,39 @@
       color: #333;
     }
 
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      background-color: #ffffff;
+    }
+
+    .hero img {
+      width: 160px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .resume-btn {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #005ecb;
+    }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -89,11 +134,21 @@
       font-size: 0.9rem;
       color: #666;
     }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateX(-20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Bilal Mohammed Sajjad Siddiqui</h1>
+    <h1>Bilal Siddiqui</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -102,6 +157,13 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
+  <div class="hero">
+    <img src="https://avatars.githubusercontent.com/u/13823383?v=4" alt="Profile Photo" />
+    <h2>Bilal Mohammed Sajjad Siddiqui</h2>
+    <p>Simulation Engineer · Thermal CAE · Aerodynamics · Digital Transformation</p>
+    <a class="resume-btn" href="Bilal_Mohammed_Sajjad_Siddiqui_Resume.pdf" download>Download Resume</a>
+  </div>
 
   <section id="about">
     <h2 class="title">About Me</h2>
