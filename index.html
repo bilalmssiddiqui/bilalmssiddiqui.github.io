@@ -1,92 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- AOS Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      transition: background 0.3s, color 0.3s;
-      background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+      color: #e0e7ff;
+      scroll-behavior: smooth;
     }
     .dark-mode {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #1e293b 0%, #111827 100%);
+      color: #d1d5db;
     }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    nav a {
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a78bfa;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #8b5cf6, #3b82f6);
+      transition: background-position 0.4s ease;
+      background-size: 200% 100%;
+      background-position: left;
+    }
+    .btn-primary:hover {
+      background-position: right;
+    }
+    .card {
+      background: rgba(255 255 255 / 0.1);
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 15px -3px rgba(59 130 246 / 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(107 33 168 / 0.7);
+    }
+    /* Skill bubbles */
+    .skill {
+      display: inline-block;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: rgba(255 255 255 / 0.15);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      user-select: none;
+    }
+    .skill:hover, .skill.active {
+      background: #8b5cf6;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 8px #8b5cf6;
+    }
+    /* Smooth scroll offset for fixed nav */
+    section {
+      scroll-margin-top: 70px;
     }
   </style>
 </head>
-<body class="text-gray-900 dark:text-white">
+<body class="min-h-screen flex flex-col">
 
-  <!-- Theme toggle -->
-  <div class="fixed top-4 right-4 z-50">
-    <button onclick="toggleTheme()" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md">
-      <i data-lucide="sun" class="lucide w-5 h-5 block dark:hidden"></i>
-      <i data-lucide="moon" class="lucide w-5 h-5 hidden dark:block"></i>
-    </button>
-  </div>
+  <!-- NAVIGATION -->
+  <nav class="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-900 to-blue-700 bg-opacity-90 backdrop-blur-md shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="text-white font-bold text-xl tracking-widest hover:text-purple-300">YourName</a>
+      <div class="space-x-6 text-sm font-semibold">
+        <a href="#hero" class="text-white hover:text-purple-300">Home</a>
+        <a href="#about" class="text-white hover:text-purple-300">About</a>
+        <a href="#skills" class="text-white hover:text-purple-300">Skills</a>
+        <a href="#projects" class="text-white hover:text-purple-300">Projects</a>
+        <a href="#contact" class="text-white hover:text-purple-300">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- Hero -->
-  <section class="text-center py-24 px-6" data-aos="fade-down">
-    <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+  <!-- HERO -->
+  <section id="hero" class="flex-grow flex flex-col justify-center items-center text-center pt-24 pb-32 px-6" data-aos="fade-up" data-aos-duration="1500">
+    <h1 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight">
       Hi, I'm Your Name
     </h1>
-    <p class="text-xl text-gray-700 dark:text-gray-300 mb-6">
-      Frontend Developer | UI/UX Enthusiast | Creative Coder
+    <p class="max-w-xl text-xl md:text-2xl text-purple-100 mb-8">
+      Frontend Developer &amp; UI/UX Enthusiast creating modern, responsive, and interactive web experiences.
     </p>
-    <a href="#projects" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-full hover:scale-105 transition transform">
-      View Projects <i data-lucide="arrow-right" class="lucide ml-2 w-5 h-5"></i>
+    <a href="#projects" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-flex items-center space-x-3">
+      <span>View Projects</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
     </a>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="px-6 py-16 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform transform card-hover" data-aos="fade-up">
-      <i data-lucide="layout-dashboard" class="lucide w-8 h-8 text-blue-500 mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-      <p class="text-sm text-gray-600 dark:text-gray-300">
-        Built with modern stacks, featuring animations, responsiveness, and accessibility.
-      </p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform transform card-hover" data-aos="fade-up" data-aos-delay="100">
-      <i data-lucide="cloud-sun" class="lucide w-8 h-8 text-yellow-500 mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">Weather App</h3>
-      <p class="text-sm text-gray-600 dark:text-gray-300">
-        Uses real-time APIs with elegant design to provide current weather updates.
-      </p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform transform card-hover" data-aos="fade-up" data-aos-delay="200">
-      <i data-lucide="check-square" class="lucide w-8 h-8 text-green-500 mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">Task Manager</h3>
-      <p class="text-sm text-gray-600 dark:text-gray-300">
-        Full CRUD functionality with Firebase backend and smooth UI transitions.
-      </p>
+  <!-- ABOUT -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-right" data-aos-duration="1200">
+    <h2 class="text-4xl font-extrabold mb-8 text-white text-center">About Me</h2>
+    <p class="max-w-3xl mx-auto text-lg text-purple-100 leading-relaxed text-center">
+      I'm a passionate frontend developer with a background in computer science and a keen eye for design. I specialize in building performant, accessible, and visually appealing websites and applications. I thrive on collaboration and continuous learning.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-left" data-aos-duration="1200">
+    <h2 class="text-4xl font-extrabold mb-10 text-white text-center">Skills</h2>
+    <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-4">
+      <span class="skill" tabindex="0">JavaScript</span>
+      <span class="skill" tabindex="0">React</span>
+      <span class="skill" tabindex="0">Tailwind CSS</span>
+      <span class="skill" tabindex="0">HTML5</span>
+      <span class="skill" tabindex="0">CSS3</span>
+      <span class="skill" tabindex="0">TypeScript</span>
+      <span class="skill" tabindex="0">Git</span>
+      <span class="skill" tabindex="0">Firebase</span>
+      <span class="skill" tabindex="0">Figma</span>
+      <span class="skill" tabindex="0">Framer Motion</span>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-10 text-sm text-gray-500 dark:text-gray-400">
-    &copy; <span id="year"></span> Your Name. Designed with ❤️ and TailwindCSS.
-  </footer>
+  <!-- PROJECTS -->
+  <section id="projects" class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-4xl font-extrabold mb-12 text-white text-center" data-aos="zoom-in" data-aos-duration="1000">Projects</h2>
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <article class="card p-6" data-aos="fade-up" data-aos-duration="900" tabindex="0" role="group" aria-label="Portfolio Website project">
+        <div class="flex items-center mb-4 text-purple-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
+            <path d="M9 21V9h6v12" />
+          </svg>
+          <h3 class="ml-3 text-xl font-semibold text-white">Portfolio Website</h3>
+        </div>
+        <p class="text-purple-200">
+          Built with React, Tailwind, and Framer Motion for smooth animations and responsive design.
+        </p>
+      </article>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    lucide.createIcons();
-  </script>
-</body>
-</html>
+      <article class="card p-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" tabindex="0" role="group" aria-label="Weather App project">
+        <div class="flex items-center mb-4 text-yellow-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M17.5 16.5a5.5 5.5 0 10-10.9-1.5" />
+            <path d="
