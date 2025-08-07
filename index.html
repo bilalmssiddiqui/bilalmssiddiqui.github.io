@@ -1,81 +1,80 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Sun, Moon, ArrowRight } from "lucide-react";
+from pathlib import Path
 
-export default function Portfolio() {
-  useEffect(() => {
-    document.title = "Your Name | Portfolio";
-  }, []);
+# HTML content with TailwindCSS via CDN, AOS for scroll animation, and Lucide icons via CDN
+html_content = """
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { transition: background-color 0.3s, color 0.3s; }
+    .dark-mode { background-color: #111827; color: white; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 dark:text-white">
 
-  return (
-    <main className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen p-6 md:p-12">
-      <section className="max-w-4xl mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold mb-4"
-        >
-          Hi, I'm <span className="text-blue-600">Your Name</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-lg md:text-xl mb-6"
-        >
-          A frontend developer crafting modern and interactive web experiences.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          <Button size="lg">
-            View Projects <ArrowRight className="ml-2" />
-          </Button>
-        </motion.div>
-      </section>
+  <!-- Toggle button -->
+  <div class="fixed top-4 right-4 z-50">
+    <button onclick="toggleTheme()" class="p-2 rounded bg-gray-200 dark:bg-gray-800">
+      <i data-lucide="sun" class="lucide h-6 w-6 block dark:hidden"></i>
+      <i data-lucide="moon" class="lucide h-6 w-6 hidden dark:block"></i>
+    </button>
+  </div>
 
-      <section className="max-w-5xl mx-auto mt-20 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {[
-          {
-            title: "Portfolio Website",
-            description: "Built with React, Tailwind, and Framer Motion for smooth animations.",
-          },
-          {
-            title: "Weather App",
-            description: "Real-time weather updates using external APIs and responsive design.",
-          },
-          {
-            title: "Task Manager",
-            description: "Full CRUD application with Firebase and sleek UI interactions.",
-          },
-        ].map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                  {project.description}
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </section>
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-4 max-w-4xl mx-auto" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Your Name</span></h1>
+    <p class="text-lg md:text-xl mb-6">A frontend developer crafting modern and interactive web experiences.</p>
+    <a href="#projects" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
+      View Projects
+      <i data-lucide="arrow-right" class="lucide ml-2 w-5 h-5"></i>
+    </a>
+  </section>
 
-      <footer className="mt-20 text-center text-sm text-gray-500 dark:text-gray-400">
-        &copy; {new Date().getFullYear()} Your Name. Built with React and love.
-      </footer>
-    </main>
-  );
-}
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-20 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+      <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Built with React, Tailwind, and Framer Motion for smooth animations.</p>
+    </div>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="text-xl font-semibold mb-2">Weather App</h3>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Real-time weather updates using external APIs and responsive design.</p>
+    </div>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-xl font-semibold mb-2">Task Manager</h3>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Full CRUD application with Firebase and sleek UI interactions.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-10 text-sm text-gray-500 dark:text-gray-400">
+    &copy; <span id="year"></span> Your Name. Built with HTML, Tailwind & ❤️.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+"""
+
+# Save as index.html
+output_path = Path("/mnt/data/index.html")
+output_path.write_text(html_content)
+
+output_path.name
+
