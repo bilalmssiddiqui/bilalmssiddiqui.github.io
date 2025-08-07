@@ -1,298 +1,647 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" >
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name | Portfolio</title>
-
-  <!-- Tailwind CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <!-- AOS Animate on Scroll -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <!-- Lucide icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
     body {
+      margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-      color: #e0e7ff;
+      background: linear-gradient(135deg, #1e1f4d, #3e3ea0);
+      color: #f0f0f5;
       scroll-behavior: smooth;
-      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #8ab4f8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #d1d9ff;
+      outline: none;
+    }
+    h1, h2, h3 {
+      margin: 0 0 1rem 0;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 2.5rem;
+      border-bottom: 2px solid #5a5ace;
+      padding-bottom: 0.3rem;
+      max-width: max-content;
+      margin-bottom: 2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      color: #c8c8ff;
+    }
+    p {
+      line-height: 1.6;
+      color: #d6d6ef;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(30,31,77,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      z-index: 1000;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    }
+    nav .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a.logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #b0b0ff;
+      letter-spacing: 0.05em;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #b0b0ff;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #5a5ace;
+      color: #fff;
+      outline: none;
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 0 8rem;
+      position: relative;
+      scroll-margin-top: 80px;
+    }
+    section:nth-child(even) {
+      background: linear-gradient(135deg, #272864, #3e3ea0);
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
+    }
+
+    /* Hero */
+    #hero {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: linear-gradient(135deg, #3a3ab8, #6a69ff);
+      box-shadow: inset 0 0 140px rgba(0,0,0,0.3);
     }
-    nav a {
-      transition: color 0.3s;
+    #hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #a99eff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInMoveUp 1.4s ease forwards;
+      opacity: 0;
     }
-    nav a:hover, nav a:focus {
-      color: #a78bfa;
-      outline: none;
+    #hero p {
+      font-size: 1.4rem;
+      color: #c8c8ffdd;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInMoveUp 1.6s ease forwards;
+      opacity: 0;
     }
-    .btn-primary {
-      background: linear-gradient(to right, #8b5cf6, #3b82f6);
-      transition: background-position 0.4s ease;
-      background-size: 200% 100%;
-      background-position: left;
-      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-    }
-    .btn-primary:hover, .btn-primary:focus {
-      background-position: right;
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.7);
-      outline: none;
-    }
-    .card {
-      background: rgba(255 255 255 / 0.1);
-      border-radius: 0.75rem;
-      box-shadow: 0 10px 15px -3px rgba(59 130 246 / 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .card:hover, .card:focus-within {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(107 33 168 / 0.7);
-      outline: none;
-    }
-    /* Skill bubbles */
-    .skill {
-      display: inline-block;
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      background: rgba(255 255 255 / 0.15);
+    #hero .btn-primary {
+      background: #756fff;
       color: white;
+      border: none;
+      padding: 1rem 2.5rem;
       font-weight: 600;
+      font-size: 1.2rem;
+      border-radius: 9999px;
       cursor: pointer;
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-      user-select: none;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
-      position: relative;
+      box-shadow: 0 8px 20px rgba(117,111,255,0.6);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInMoveUp 1.8s ease forwards;
+      opacity: 0;
     }
-    .skill:hover, .skill.active {
-      background: #8b5cf6;
-      color: white;
-      transform: scale(1.1);
-      box-shadow: 0 0 12px #8b5cf6;
-      z-index: 10;
+    #hero .btn-primary:hover,
+    #hero .btn-primary:focus {
+      background: #5a5ace;
+      box-shadow: 0 12px 28px rgba(90,90,206,0.75);
+      outline: none;
+    }
+
+    @keyframes fadeInMoveUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About */
+    #about {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #about h2 {
+      margin-bottom: 2rem;
+    }
+    #about p {
+      font-size: 1.2rem;
+      color: #d1d1ffcc;
+      line-height: 1.75;
+    }
+
+    /* Skills */
+    #skills {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #skills h2 {
+      margin-bottom: 3rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
+      gap: 1.8rem;
+      justify-items: center;
+    }
+    .skill {
+      position: relative;
+      background: #4c4caa33;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      color: #b8b8ff;
+      cursor: default;
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+      outline-offset: 4px;
+    }
+    .skill:hover,
+    .skill:focus {
+      background: #756fffdd;
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(117,111,255,0.8);
+      outline: none;
     }
     .skill-tooltip {
       position: absolute;
-      bottom: 120%;
+      bottom: 130%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(55, 48, 163, 0.9);
+      background: #756fffdd;
       color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 0.4rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
       font-size: 0.85rem;
       white-space: nowrap;
-      pointer-events: none;
       opacity: 0;
-      transition: opacity 0.3s;
-      z-index: 20;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 6px 18px rgba(117,111,255,0.8);
+      z-index: 10;
     }
-    .skill:hover .skill-tooltip, .skill.active .skill-tooltip {
+    .skill:hover .skill-tooltip,
+    .skill:focus .skill-tooltip {
       opacity: 1;
       pointer-events: auto;
     }
-    /* Smooth scroll offset for fixed nav */
-    section {
-      scroll-margin-top: 70px;
+
+    /* Projects */
+    #projects {
+      max-width: 1100px;
+      margin: 0 auto;
     }
+    #projects h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 2.5rem;
+    }
+    .project-card {
+      background: #292963cc;
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      outline-offset: 4px;
+    }
+    .project-card:focus,
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(117,111,255,0.7);
+      outline: none;
+    }
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      color: #8a8aff;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #d1d1ff;
+    }
+    .project-desc {
+      flex-grow: 1;
+      font-size: 1rem;
+      color: #bbbcee;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+    .project-links {
+      font-size: 0.9rem;
+      color: #8ab4f8;
+      display: flex;
+      gap: 1rem;
+    }
+    .project-links a:hover,
+    .project-links a:focus {
+      color: #d1d9ff;
+      outline: none;
+    }
+
+    /* Project Detail Section */
+    #project-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #2e2e78cc;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 0 40px rgba(117,111,255,0.6);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(40px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 6rem;
+      position: relative;
+    }
+    #project-detail.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    #project-detail h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    #project-detail p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+      margin-bottom: 1.8rem;
+    }
+    #project-detail .detail-links a {
+      margin-right: 1.5rem;
+      color: #8ab4f8;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    #project-detail .detail-links a:hover,
+    #project-detail .detail-links a:focus {
+      color: #d1d9ff;
+      outline: none;
+    }
+    #project-detail .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: transparent;
+      border: none;
+      color: #bbbcee;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    #project-detail .close-btn:hover,
+    #project-detail .close-btn:focus {
+      color: #fff;
+      outline: none;
+    }
+
+    /* Contact */
+    #contact {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #contact h2 {
+      margin-bottom: 1.5rem;
+    }
+    #contact p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #d1d1ffcc;
+    }
+    #contact .btn-primary {
+      background: #756fff;
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(117,111,255,0.6);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 2.5rem;
+    }
+    #contact .btn-primary:hover,
+    #contact .btn-primary:focus {
+      background: #5a5ace;
+      box-shadow: 0 12px 28px rgba(90,90,206,0.75);
+      outline: none;
+    }
+    #contact .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 2rem;
+      color: #a6a6f7;
+    }
+    #contact .social-icons a {
+      transition: color 0.3s ease;
+    }
+    #contact .social-icons a:hover,
+    #contact .social-icons a:focus {
+      color: #fff;
+      outline: none;
+    }
+
     /* Footer */
     footer {
-      background: rgba(0, 0, 0, 0.15);
       text-align: center;
-      padding: 1rem 0;
-      margin-top: auto;
+      padding: 2rem 1rem;
+      color: #7777aa;
       font-size: 0.9rem;
-      color: #a5b4fc;
+      border-top: 1px solid rgba(117,111,255,0.2);
+      background: #1a1a3c;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2.8rem;
+      }
+      #hero p {
+        font-size: 1rem;
+      }
+      .project-card {
+        padding: 1.5rem;
+      }
+      #project-detail {
+        padding: 2rem 1.5rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- NAVIGATION -->
-  <nav class="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-900 to-blue-700 bg-opacity-90 backdrop-blur-md shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#hero" class="text-white font-bold text-xl tracking-widest hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">YourName</a>
-      <div class="space-x-6 text-sm font-semibold">
-        <a href="#hero" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Home</a>
-        <a href="#about" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">About</a>
-        <a href="#skills" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Skills</a>
-        <a href="#projects" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Projects</a>
-        <a href="#contact" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Contact</a>
-      </div>
+  <nav role="navigation" aria-label="Primary navigation">
+    <div class="nav-container container">
+      <a href="#hero" class="logo" tabindex="0">YourName</a>
+      <ul>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#skills" tabindex="0">Skills</a></li>
+        <li><a href="#projects" tabindex="0">Projects</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero" class="flex-grow flex flex-col justify-center items-center text-center pt-24 pb-32 px-6" data-aos="fade-up" data-aos-duration="1500">
-    <h1 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight">
-      Hi, I'm Your Name
-    </h1>
-    <p class="max-w-xl text-xl md:text-2xl text-purple-100 mb-8">
-      Frontend Developer &amp; UI/UX Enthusiast creating modern, responsive, and interactive web experiences.
-    </p>
-    <a href="#projects" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-flex items-center space-x-3" tabindex="0">
-      <span>View Projects</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </a>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-right" data-aos-duration="1200">
-    <h2 class="text-4xl font-extrabold mb-8 text-white text-center">About Me</h2>
-    <p class="max-w-3xl mx-auto text-lg text-purple-100 leading-relaxed text-center">
-      I'm a frontend developer with a degree in Computer Science from XYZ University. I have 5+ years of experience building responsive, accessible websites and web apps.
-      I’m passionate about crafting seamless user experiences, combining clean code with beautiful design.
-      When I'm not coding, I enjoy photography, hiking, and exploring new UI/UX trends.
-    </p>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-left" data-aos-duration="1200">
-    <h2 class="text-4xl font-extrabold mb-10 text-white text-center">Skills</h2>
-    <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-6">
-      <span class="skill" tabindex="0" aria-label="JavaScript skill">
-        JavaScript
-        <span class="skill-tooltip">Expert in ES6+, DOM manipulation, and asynchronous programming.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="React skill">
-        React
-        <span class="skill-tooltip">Building component-based UIs with hooks, context, and state management.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="Tailwind CSS skill">
-        Tailwind CSS
-        <span class="skill-tooltip">Rapidly designing responsive layouts using utility-first CSS framework.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="HTML5 skill">
-        HTML5
-        <span class="skill-tooltip">Semantic markup, accessibility standards, and SEO best practices.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="CSS3 skill">
-        CSS3
-        <span class="skill-tooltip">Flexbox, Grid, animations, and preprocessors like SASS.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="TypeScript skill">
-        TypeScript
-        <span class="skill-tooltip">Strong typing to improve code quality and maintainability.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="Git skill">
-        Git
-        <span class="skill-tooltip">Version control and collaboration using Git and GitHub workflows.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="Firebase skill">
-        Firebase
-        <span class="skill-tooltip">Backend services including authentication, hosting, and realtime database.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="Figma skill">
-        Figma
-        <span class="skill-tooltip">Designing UI mockups and prototypes for user testing and iteration.</span>
-      </span>
-      <span class="skill" tabindex="0" aria-label="Framer Motion skill">
-        Framer Motion
-        <span class="skill-tooltip">Creating smooth animations and transitions in React applications.</span>
-      </span>
+  <section id="hero" aria-label="Introduction">
+    <div class="container">
+      <h1 data-aos="fade-up" tabindex="0">Hi, I'm Your Name</h1>
+      <p data-aos="fade-up" data-aos-delay="150" tabindex="0">
+        A frontend developer crafting modern, interactive web experiences with passion and precision.
+      </p>
+      <button class="btn-primary" data-aos="fade-up" data-aos-delay="300" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" aria-label="View my projects">View Projects</button>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-4xl font-extrabold mb-12 text-white text-center" data-aos="zoom-in" data-aos-duration="1000">Projects</h2>
-    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-      <article class="card p-6" data-aos="fade-up" data-aos-duration="900" tabindex="0" role="group" aria-label="Portfolio Website project">
-        <div class="flex items-center mb-4 text-purple-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
-            <path d="M9 21V9h6v12" />
-          </svg>
-          <h3 class="ml-3 text-xl font-semibold text-white">Portfolio Website</h3>
-        </div>
-        <p class="text-purple-200 mb-4">
-          A modern, responsive portfolio built with React, Tailwind CSS, and Framer Motion. Features smooth animations and intuitive navigation.
-        </p>
-        <a href="https://yourportfolio.com" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Live</a> | 
-        <a href="https://github.com/yourusername/portfolio" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Source Code</a>
-      </article>
-
-      <article class="card p-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" tabindex="0" role="group" aria-label="Weather App project">
-        <div class="flex items-center mb-4 text-yellow-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M12 3v1M16.24 7.76l.7-.7M21 12h-1M16.24 16.24l.7.7M12 21v-1M7.76 16.24l-.7.7M3 12h1M7.76 7.76l-.7-.7" />
-            <circle cx="12" cy="12" r="5" />
-          </svg>
-          <h3 class="ml-3 text-xl font-semibold text-white">Weather App</h3>
-        </div>
-        <p class="text-purple-200 mb-4">
-          Real-time weather app using OpenWeather API. Includes search, geolocation, and dynamic backgrounds matching current weather conditions.
-        </p>
-        <a href="https://weatherapp.com" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Live</a> | 
-        <a href="https://github.com/yourusername/weather-app" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Source Code</a>
-      </article>
-
-      <article class="card p-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900" tabindex="0" role="group" aria-label="Task Manager project">
-        <div class="flex items-center mb-4 text-green-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4" />
-            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <h3 class="ml-3 text-xl font-semibold text-white">Task Manager</h3>
-        </div>
-        <p class="text-purple-200 mb-4">
-          A full CRUD task manager app with drag-and-drop priority sorting and user authentication using Firebase.
-        </p>
-        <a href="https://taskmanager.com" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Live</a> | 
-        <a href="https://github.com/yourusername/task-manager" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Source Code</a>
-      </article>
+  <section id="about" aria-label="About me" tabindex="0">
+    <div class="container">
+      <h2 data-aos="fade-right">About Me</h2>
+      <p data-aos="fade-right" data-aos-delay="100">
+        I am a passionate developer with over 5 years of experience building responsive and accessible web applications. I specialize in JavaScript frameworks, modern CSS, and creating seamless user experiences. When I'm not coding, I enjoy photography and hiking.
+      </p>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="max-w-3xl mx-auto px-6 py-20 text-center" data-aos="fade-up" data-aos-duration="1200">
-    <h2 class="text-4xl font-extrabold mb-8 text-white">Get in Touch</h2>
-    <p class="mb-8 text-purple-200 text-lg">
-      Whether you want to collaborate on a project or just say hi, my inbox is always open!
-    </p>
-    <a href="mailto:your.email@example.com" class="btn-primary px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-block mb-12" tabindex="0">
-      Email Me
-    </a>
-    <div class="flex justify-center space-x-8 text-purple-200 text-3xl">
-      <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" rel="noopener" class="hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
-        <svg xmlns="http://www.w3.org/2000/svg" class="lucide" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12a10 10 0 006.84 9.53c.5.09.68-.22.68-.48v-1.72c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.91-.63.07-.62.07-.62 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.64-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.02a9.56 9.56 0 012.5-.33c.85 0 1.7.12 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.39.2 2.41.1 2.67.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.91.68 1.84v2.73c0 .27.18.58.69.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
-      </a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" rel="noopener" class="hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
-        <svg xmlns="http://www.w3.org/2000/svg" class="lucide" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" rel="noopener" class="hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
-        <svg xmlns="http://www.w3.org/2000/svg" class="lucide" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-      </a>
+  <section id="skills" aria-label="My skills" tabindex="0">
+    <div class="container">
+      <h2 data-aos="fade-left">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill" tabindex="0" aria-describedby="tooltip-js">
+          JavaScript
+          <div role="tooltip" id="tooltip-js" class="skill-tooltip">Experienced in ES6+, React, and Node.js.</div>
+        </div>
+        <div class="skill" tabindex="0" aria-describedby="tooltip-css">
+          CSS &amp; Tailwind
+          <div role="tooltip" id="tooltip-css" class="skill-tooltip">Expert in responsive design and animations.</div>
+        </div>
+        <div class="skill" tabindex="0" aria-describedby="tooltip-react">
+          React
+          <div role="tooltip" id="tooltip-react" class="skill-tooltip">Building scalable SPA with hooks and context API.</div>
+        </div>
+        <div class="skill" tabindex="0" aria-describedby="tooltip-node">
+          Node.js
+          <div role="tooltip" id="tooltip-node" class="skill-tooltip">Backend development and REST APIs.</div>
+        </div>
+        <div class="skill" tabindex="0" aria-describedby="tooltip-git">
+          Git &amp; GitHub
+          <div role="tooltip" id="tooltip-git" class="skill-tooltip">Version control and collaborative workflows.</div>
+        </div>
+        <div class="skill" tabindex="0" aria-describedby="tooltip-accessibility">
+          Accessibility
+          <div role="tooltip" id="tooltip-accessibility" class="skill-tooltip">Creating inclusive and usable interfaces.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" aria-label="My projects" tabindex="0">
+    <div class="container">
+      <h2 data-aos="fade-up">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" tabindex="0" role="button" aria-pressed="false" aria-label="Open project Portfolio Website details" data-project="portfolio" >
+          <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20v-4M18 20v-8M9 4h6a2 2 0 012 2v4H7V6a2 2 0 012-2z"/></svg>
+          <div class="project-title">Portfolio Website</div>
+          <div class="project-desc">Built with React, Tailwind, and Framer Motion for smooth animations.</div>
+          <div class="project-links">
+            <a href="https://your-portfolio-demo.com" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/yourusername/portfolio" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card" tabindex="0" role="button" aria-pressed="false" aria-label="Open project Weather App details" data-project="weather" >
+          <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <div class="project-title">Weather App</div>
+          <div class="project-desc">Real-time weather updates using external APIs and responsive design.</div>
+          <div class="project-links">
+            <a href="https://your-weatherapp-demo.com" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/yourusername/weatherapp" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card" tabindex="0" role="button" aria-pressed="false" aria-label="Open project Task Manager details" data-project="taskmanager" >
+          <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v6a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h11"/></svg>
+          <div class="project-title">Task Manager</div>
+          <div class="project-desc">Full CRUD application with Firebase and sleek UI interactions.</div>
+          <div class="project-links">
+            <a href="https://your-taskmanager-demo.com" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/yourusername/taskmanager" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-detail" aria-live="polite" aria-atomic="true" tabindex="0">
+    <button class="close-btn" aria-label="Close project details">&times;</button>
+    <h3>Project Title</h3>
+    <p>Project detailed description goes here.</p>
+    <div class="detail-links">
+      <a href="#" target="_blank" rel="noopener">Live Demo</a>
+      <a href="#" target="_blank" rel="noopener">GitHub Repo</a>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact me" tabindex="0">
+    <div class="container">
+      <h2 data-aos="fade-up">Get in Touch</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Feel free to reach out for collaborations, projects, or just a friendly chat.</p>
+      <a href="mailto:your.email@example.com" class="btn-primary" data-aos="fade-up" data-aos-delay="200" aria-label="Send email">Email Me</a>
+      <div class="social-icons" data-aos="fade-up" data-aos-delay="300">
+        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px"><path stroke-linejoin="round" stroke-linecap="round" d="M12 2a10 10 0 00-3.16 19.49c.5.1.68-.22.68-.49v-1.73c-2.77.6-3.35-1.34-3.35-1.34-.45-1.17-1.1-1.48-1.1-1.48-.9-.62.07-.6.07-.6 1 .07 1.53 1.04 1.53 1.04.89 1.53 2.34 1.09 2.91.83a2.3 2.3 0 01.68-1.44c-2.22-.25-4.56-1.12-4.56-5A4 4 0 018.09 6.8a3.7 3.7 0 01.1-2.73s.84-.27 2.75 1.02a9.4 9.4 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.45 1.15.48 2.45.1 2.73a4 4 0 011.07 2.8c0 3.89-2.34 4.75-4.57 5a2.5 2.5 0 01.71 1.95v2.89c0 .27.18.59.69.49A10 10 0 0012 2z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Your Name. All rights reserved.
+    <div class="container">
+      &copy; 2025 Your Name. Crafted with 💜 and clean code.
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      once: true,
-      duration: 1000,
-      easing: 'ease-in-out',
+    AOS.init({ once: true, duration: 1000 });
+
+    // Project detail popup logic
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectDetail = document.getElementById('project-detail');
+    const detailTitle = projectDetail.querySelector('h3');
+    const detailDesc = projectDetail.querySelector('p');
+    const detailLinks = projectDetail.querySelectorAll('a');
+    const closeBtn = projectDetail.querySelector('.close-btn');
+
+    const projectInfo = {
+      portfolio: {
+        title: "Portfolio Website",
+        desc: "A clean and interactive portfolio site built with React, Tailwind CSS, and Framer Motion for sleek animations. Designed to showcase skills, projects, and provide contact options, all while being fully responsive.",
+        demo: "https://your-portfolio-demo.com",
+        repo: "https://github.com/yourusername/portfolio"
+      },
+      weather: {
+        title: "Weather App",
+        desc: "A dynamic weather app that fetches real-time data from OpenWeather API. It supports responsive design, search by location, and dark mode toggle. Developed using React and styled with Tailwind.",
+        demo: "https://your-weatherapp-demo.com",
+        repo: "https://github.com/yourusername/weatherapp"
+      },
+      taskmanager: {
+        title: "Task Manager",
+        desc: "A task management app with full CRUD capabilities using Firebase for realtime database and authentication. UI is built for intuitive task tracking and productivity, with responsive layouts and animated transitions.",
+        demo: "https://your-taskmanager-demo.com",
+        repo: "https://github.com/yourusername/taskmanager"
+      }
+    };
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-project');
+        const info = projectInfo[key];
+        detailTitle.textContent = info.title;
+        detailDesc.textContent = info.desc;
+        detailLinks[0].href = info.demo;
+        detailLinks[1].href = info.repo;
+        projectDetail.classList.add('visible');
+        projectDetail.scrollIntoView({ behavior: 'smooth' });
+      });
     });
 
-    // Optional: Toggle skill tooltip on keyboard focus
-    const skills = document.querySelectorAll('.skill');
-    skills.forEach(skill => {
-      skill.addEventListener('focus', () => {
-        skill.classList.add('active');
-      });
-      skill.addEventListener('blur', () => {
-        skill.classList.remove('active');
-      });
+    closeBtn.addEventListener('click', () => {
+      projectDetail.classList.remove('visible');
     });
   </script>
 </body>
