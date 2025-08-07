@@ -1,9 +1,5 @@
-from pathlib import Path
-
-# HTML content with TailwindCSS via CDN, AOS for scroll animation, and Lucide icons via CDN
-html_content = """
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,51 +8,75 @@ html_content = """
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    body { transition: background-color 0.3s, color 0.3s; }
-    .dark-mode { background-color: #111827; color: white; }
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background 0.3s, color 0.3s;
+      background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+    }
+    .dark-mode {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
-<body class="bg-white text-gray-900 dark:text-white">
+<body class="text-gray-900 dark:text-white">
 
-  <!-- Toggle button -->
+  <!-- Theme toggle -->
   <div class="fixed top-4 right-4 z-50">
-    <button onclick="toggleTheme()" class="p-2 rounded bg-gray-200 dark:bg-gray-800">
-      <i data-lucide="sun" class="lucide h-6 w-6 block dark:hidden"></i>
-      <i data-lucide="moon" class="lucide h-6 w-6 hidden dark:block"></i>
+    <button onclick="toggleTheme()" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md">
+      <i data-lucide="sun" class="lucide w-5 h-5 block dark:hidden"></i>
+      <i data-lucide="moon" class="lucide w-5 h-5 hidden dark:block"></i>
     </button>
   </div>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20 px-4 max-w-4xl mx-auto" data-aos="fade-up">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Your Name</span></h1>
-    <p class="text-lg md:text-xl mb-6">A frontend developer crafting modern and interactive web experiences.</p>
-    <a href="#projects" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
-      View Projects
-      <i data-lucide="arrow-right" class="lucide ml-2 w-5 h-5"></i>
+  <!-- Hero -->
+  <section class="text-center py-24 px-6" data-aos="fade-down">
+    <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+      Hi, I'm Your Name
+    </h1>
+    <p class="text-xl text-gray-700 dark:text-gray-300 mb-6">
+      Frontend Developer | UI/UX Enthusiast | Creative Coder
+    </p>
+    <a href="#projects" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-full hover:scale-105 transition transform">
+      View Projects <i data-lucide="arrow-right" class="lucide ml-2 w-5 h-5"></i>
     </a>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="max-w-6xl mx-auto px-4 py-20 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+  <!-- Projects -->
+  <section id="projects" class="px-6 py-16 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform transform card-hover" data-aos="fade-up">
+      <i data-lucide="layout-dashboard" class="lucide w-8 h-8 text-blue-500 mb-4"></i>
       <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-      <p class="text-sm text-gray-700 dark:text-gray-300">Built with React, Tailwind, and Framer Motion for smooth animations.</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300">
+        Built with modern stacks, featuring animations, responsiveness, and accessibility.
+      </p>
     </div>
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform transform card-hover" data-aos="fade-up" data-aos-delay="100">
+      <i data-lucide="cloud-sun" class="lucide w-8 h-8 text-yellow-500 mb-4"></i>
       <h3 class="text-xl font-semibold mb-2">Weather App</h3>
-      <p class="text-sm text-gray-700 dark:text-gray-300">Real-time weather updates using external APIs and responsive design.</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300">
+        Uses real-time APIs with elegant design to provide current weather updates.
+      </p>
     </div>
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform transform card-hover" data-aos="fade-up" data-aos-delay="200">
+      <i data-lucide="check-square" class="lucide w-8 h-8 text-green-500 mb-4"></i>
       <h3 class="text-xl font-semibold mb-2">Task Manager</h3>
-      <p class="text-sm text-gray-700 dark:text-gray-300">Full CRUD application with Firebase and sleek UI interactions.</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300">
+        Full CRUD functionality with Firebase backend and smooth UI transitions.
+      </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="text-center py-10 text-sm text-gray-500 dark:text-gray-400">
-    &copy; <span id="year"></span> Your Name. Built with HTML, Tailwind & ❤️.
+    &copy; <span id="year"></span> Your Name. Designed with ❤️ and TailwindCSS.
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -70,11 +90,3 @@ html_content = """
   </script>
 </body>
 </html>
-"""
-
-# Save as index.html
-output_path = Path("/mnt/data/index.html")
-output_path.write_text(html_content)
-
-output_path.name
-
