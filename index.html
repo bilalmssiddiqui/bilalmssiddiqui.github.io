@@ -18,6 +18,9 @@
       background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
       color: #e0e7ff;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     .dark-mode {
       background: linear-gradient(135deg, #1e293b 0%, #111827 100%);
@@ -26,27 +29,33 @@
     nav a {
       transition: color 0.3s;
     }
-    nav a:hover {
+    nav a:hover, nav a:focus {
       color: #a78bfa;
+      outline: none;
     }
     .btn-primary {
       background: linear-gradient(to right, #8b5cf6, #3b82f6);
       transition: background-position 0.4s ease;
       background-size: 200% 100%;
       background-position: left;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
     }
-    .btn-primary:hover {
+    .btn-primary:hover, .btn-primary:focus {
       background-position: right;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.7);
+      outline: none;
     }
     .card {
       background: rgba(255 255 255 / 0.1);
       border-radius: 0.75rem;
       box-shadow: 0 10px 15px -3px rgba(59 130 246 / 0.5);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
-    .card:hover {
+    .card:hover, .card:focus-within {
       transform: translateY(-8px);
       box-shadow: 0 20px 25px -5px rgba(107 33 168 / 0.7);
+      outline: none;
     }
     /* Skill bubbles */
     .skill {
@@ -60,44 +69,54 @@
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s, transform 0.3s;
       user-select: none;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
     }
     .skill:hover, .skill.active {
       background: #8b5cf6;
       color: white;
       transform: scale(1.1);
-      box-shadow: 0 0 8px #8b5cf6;
+      box-shadow: 0 0 12px #8b5cf6;
     }
     /* Smooth scroll offset for fixed nav */
     section {
       scroll-margin-top: 70px;
     }
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.15);
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #a5b4fc;
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
   <!-- NAVIGATION -->
   <nav class="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-900 to-blue-700 bg-opacity-90 backdrop-blur-md shadow-md z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#hero" class="text-white font-bold text-xl tracking-widest hover:text-purple-300">YourName</a>
+      <a href="#hero" class="text-white font-bold text-xl tracking-widest hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">YourName</a>
       <div class="space-x-6 text-sm font-semibold">
-        <a href="#hero" class="text-white hover:text-purple-300">Home</a>
-        <a href="#about" class="text-white hover:text-purple-300">About</a>
-        <a href="#skills" class="text-white hover:text-purple-300">Skills</a>
-        <a href="#projects" class="text-white hover:text-purple-300">Projects</a>
-        <a href="#contact" class="text-white hover:text-purple-300">Contact</a>
+        <a href="#hero" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Home</a>
+        <a href="#about" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">About</a>
+        <a href="#skills" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Skills</a>
+        <a href="#projects" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Projects</a>
+        <a href="#contact" class="text-white hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero" class="flex-grow flex flex-col justify-center items-center text-center pt-24 pb-32 px-6" data-aos="fade-up" data-aos-duration="1500">
-    <h1 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight">
+    <h1 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight animate-fadeIn">
       Hi, I'm Your Name
     </h1>
-    <p class="max-w-xl text-xl md:text-2xl text-purple-100 mb-8">
+    <p class="max-w-xl text-xl md:text-2xl text-purple-100 mb-8 animate-fadeIn delay-300">
       Frontend Developer &amp; UI/UX Enthusiast creating modern, responsive, and interactive web experiences.
     </p>
-    <a href="#projects" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-flex items-center space-x-3">
+    <a href="#projects" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-flex items-center space-x-3 animate-fadeIn delay-600" tabindex="0">
       <span>View Projects</span>
       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -109,7 +128,7 @@
   <section id="about" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-right" data-aos-duration="1200">
     <h2 class="text-4xl font-extrabold mb-8 text-white text-center">About Me</h2>
     <p class="max-w-3xl mx-auto text-lg text-purple-100 leading-relaxed text-center">
-      I'm a passionate frontend developer with a background in computer science and a keen eye for design. I specialize in building performant, accessible, and visually appealing websites and applications. I thrive on collaboration and continuous learning.
+      I am a dedicated frontend developer with a solid background in computer science and design principles. Over the years, I've crafted scalable web apps with a focus on user experience and accessibility. Passionate about clean code and innovative UI, I love collaborating on projects that challenge me and drive growth.
     </p>
   </section>
 
@@ -117,16 +136,16 @@
   <section id="skills" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-left" data-aos-duration="1200">
     <h2 class="text-4xl font-extrabold mb-10 text-white text-center">Skills</h2>
     <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-4">
-      <span class="skill" tabindex="0">JavaScript</span>
-      <span class="skill" tabindex="0">React</span>
-      <span class="skill" tabindex="0">Tailwind CSS</span>
-      <span class="skill" tabindex="0">HTML5</span>
-      <span class="skill" tabindex="0">CSS3</span>
-      <span class="skill" tabindex="0">TypeScript</span>
-      <span class="skill" tabindex="0">Git</span>
-      <span class="skill" tabindex="0">Firebase</span>
-      <span class="skill" tabindex="0">Figma</span>
-      <span class="skill" tabindex="0">Framer Motion</span>
+      <span class="skill" tabindex="0" aria-label="JavaScript skill">JavaScript</span>
+      <span class="skill" tabindex="0" aria-label="React skill">React</span>
+      <span class="skill" tabindex="0" aria-label="Tailwind CSS skill">Tailwind CSS</span>
+      <span class="skill" tabindex="0" aria-label="HTML5 skill">HTML5</span>
+      <span class="skill" tabindex="0" aria-label="CSS3 skill">CSS3</span>
+      <span class="skill" tabindex="0" aria-label="TypeScript skill">TypeScript</span>
+      <span class="skill" tabindex="0" aria-label="Git skill">Git</span>
+      <span class="skill" tabindex="0" aria-label="Firebase skill">Firebase</span>
+      <span class="skill" tabindex="0" aria-label="Figma skill">Figma</span>
+      <span class="skill" tabindex="0" aria-label="Framer Motion skill">Framer Motion</span>
     </div>
   </section>
 
@@ -143,12 +162,21 @@
           <h3 class="ml-3 text-xl font-semibold text-white">Portfolio Website</h3>
         </div>
         <p class="text-purple-200">
-          Built with React, Tailwind, and Framer Motion for smooth animations and responsive design.
+          A modern, responsive portfolio built with React, Tailwind CSS, and Framer Motion. Features smooth animations and intuitive navigation.
         </p>
       </article>
 
       <article class="card p-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" tabindex="0" role="group" aria-label="Weather App project">
         <div class="flex items-center mb-4 text-yellow-400">
           <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M17.5 16.5a5.5 5.5 0 10-10.9-1.5" />
-            <path d="
+            <path d="M12 3v1M16.24 7.76l.7-.7M21 12h-1M16.24 16.24l.7.7M12 21v-1M7.76 16.24l-.7.7M3 12h1M7.76 7.76l-.7-.7" />
+            <circle cx="12" cy="12" r="5" />
+          </svg>
+          <h3 class="ml-3 text-xl font-semibold text-white">Weather App</h3>
+        </div>
+        <p class="text-purple-200">
+          Real-time weather updates with beautiful UI using external APIs and mobile-first design principles.
+        </p>
+      </article>
+
+      <article class="card p-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900" tabindex="0" role
