@@ -1,10 +1,182 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>bilalmssiddiqui.github.io</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilal Mohammed Sajjad Siddiqui – Portfolio</title>
+  <style>
+    :root {
+      --primary: #1c1c1e;
+      --accent: #007aff;
+      --light: #f9f9f9;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--light);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      font-weight: 600;
+    }
+
+    .entry {
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .entry h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .entry p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bilal Mohammed Sajjad Siddiqui</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2 class="title">About Me</h2>
+    <p>
+      A detail-oriented and versatile individual with experience in the automotive and energy sectors, having worked with Volvo Cars and Schneider Electric. My background includes design, simulation modelling, benchmarking, and digital transformation. I specialize in thermal CAE, aerodynamics, and fluid dynamics, and thrive in multicultural and innovative environments.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2 class="title">Projects</h2>
+    <div class="entry">
+      <h3>Business Jet Concept Design</h3>
+      <p>Designed a hydrogen-powered business jet with a focus on fuel efficiency and aerodynamics.</p>
+    </div>
+    <div class="entry">
+      <h3>Chalmers Formula Student</h3>
+      <p>Developed a new rear diffuser design, increasing downforce by 17.9% and reducing drag by 8.1%.</p>
+    </div>
+    <div class="entry">
+      <h3>SR-71 Engine Intake Analysis</h3>
+      <p>Analyzed supersonic intake flows using analytical and numerical methods to evaluate unstart behavior.</p>
+    </div>
+    <div class="entry">
+      <h3>FEM Study on CO2 Heat Exchanger</h3>
+      <p>Modeled a double-pipe heat exchanger with supercritical CO2 and validated with CFD data.</p>
+    </div>
+    <div class="entry">
+      <h3>AIAA DBF – Team Aeolus</h3>
+      <p>Contributed to flight optimization and aircraft design; finished 2nd globally in the design proposal phase.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="title">Education</h2>
+    <div class="entry">
+      <h3>MSc in Applied Mechanics</h3>
+      <p>Chalmers University of Technology, 2023–present · CGPA: 4.5/5</p>
+    </div>
+    <div class="entry">
+      <h3>BTech in Mechanical Engineering</h3>
+      <p>PES University, 2017–2021 · CGPA: 8.30/10</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="title">Experience</h2>
+    <div class="entry">
+      <h3>Master Thesis Student – Volvo Cars</h3>
+      <p>Simulation modeling of rear lamp temperatures using sun load data for the Volvo EX90 (2025–present).</p>
+    </div>
+    <div class="entry">
+      <h3>Battery Summer Intern – Volvo Cars</h3>
+      <p>Benchmarked EV batteries and evaluated ANSYS Discovery for cooling plate design (June–Aug 2024).</p>
+    </div>
+    <div class="entry">
+      <h3>ERP Business Analyst – Schneider Electric</h3>
+      <p>Led MSCA implementation and E2E traceability systems for supply chain operations (2022–2023).</p>
+    </div>
+    <div class="entry">
+      <h3>Graduate Engineer Trainee – Schneider Electric</h3>
+      <p>Supported Oracle Supply Chain modules including Inventory and Order Management (2021–2022).</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="title">Contact</h2>
+    <div class="entry">
+      <p>Email: <a href="mailto:bilalmssiddiqui@gmail.com">bilalmssiddiqui@gmail.com</a></p>
+      <p>Phone: <a href="tel:+46764505710">+46 76 450 5710</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/bilal-siddiqui-722a75182/" target="_blank">linkedin.com/in/bilal-siddiqui</a></p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Bilal Mohammed Sajjad Siddiqui. All rights reserved.
+  </footer>
+</body>
 </html>
