@@ -22,10 +22,6 @@
       display: flex;
       flex-direction: column;
     }
-    .dark-mode {
-      background: linear-gradient(135deg, #1e293b 0%, #111827 100%);
-      color: #d1d5db;
-    }
     nav a {
       transition: color 0.3s;
     }
@@ -70,12 +66,34 @@
       transition: background-color 0.3s, color 0.3s, transform 0.3s;
       user-select: none;
       box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      position: relative;
     }
     .skill:hover, .skill.active {
       background: #8b5cf6;
       color: white;
       transform: scale(1.1);
       box-shadow: 0 0 12px #8b5cf6;
+      z-index: 10;
+    }
+    .skill-tooltip {
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(55, 48, 163, 0.9);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.4rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 20;
+    }
+    .skill:hover .skill-tooltip, .skill.active .skill-tooltip {
+      opacity: 1;
+      pointer-events: auto;
     }
     /* Smooth scroll offset for fixed nav */
     section {
@@ -110,13 +128,13 @@
 
   <!-- HERO -->
   <section id="hero" class="flex-grow flex flex-col justify-center items-center text-center pt-24 pb-32 px-6" data-aos="fade-up" data-aos-duration="1500">
-    <h1 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight animate-fadeIn">
+    <h1 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight">
       Hi, I'm Your Name
     </h1>
-    <p class="max-w-xl text-xl md:text-2xl text-purple-100 mb-8 animate-fadeIn delay-300">
+    <p class="max-w-xl text-xl md:text-2xl text-purple-100 mb-8">
       Frontend Developer &amp; UI/UX Enthusiast creating modern, responsive, and interactive web experiences.
     </p>
-    <a href="#projects" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-flex items-center space-x-3 animate-fadeIn delay-600" tabindex="0">
+    <a href="#projects" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-flex items-center space-x-3" tabindex="0">
       <span>View Projects</span>
       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" fill="none" viewBox="0 0 24 24" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -128,24 +146,56 @@
   <section id="about" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-right" data-aos-duration="1200">
     <h2 class="text-4xl font-extrabold mb-8 text-white text-center">About Me</h2>
     <p class="max-w-3xl mx-auto text-lg text-purple-100 leading-relaxed text-center">
-      I am a dedicated frontend developer with a solid background in computer science and design principles. Over the years, I've crafted scalable web apps with a focus on user experience and accessibility. Passionate about clean code and innovative UI, I love collaborating on projects that challenge me and drive growth.
+      I'm a frontend developer with a degree in Computer Science from XYZ University. I have 5+ years of experience building responsive, accessible websites and web apps.
+      I’m passionate about crafting seamless user experiences, combining clean code with beautiful design.
+      When I'm not coding, I enjoy photography, hiking, and exploring new UI/UX trends.
     </p>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="max-w-5xl mx-auto px-6 py-20" data-aos="fade-left" data-aos-duration="1200">
     <h2 class="text-4xl font-extrabold mb-10 text-white text-center">Skills</h2>
-    <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-4">
-      <span class="skill" tabindex="0" aria-label="JavaScript skill">JavaScript</span>
-      <span class="skill" tabindex="0" aria-label="React skill">React</span>
-      <span class="skill" tabindex="0" aria-label="Tailwind CSS skill">Tailwind CSS</span>
-      <span class="skill" tabindex="0" aria-label="HTML5 skill">HTML5</span>
-      <span class="skill" tabindex="0" aria-label="CSS3 skill">CSS3</span>
-      <span class="skill" tabindex="0" aria-label="TypeScript skill">TypeScript</span>
-      <span class="skill" tabindex="0" aria-label="Git skill">Git</span>
-      <span class="skill" tabindex="0" aria-label="Firebase skill">Firebase</span>
-      <span class="skill" tabindex="0" aria-label="Figma skill">Figma</span>
-      <span class="skill" tabindex="0" aria-label="Framer Motion skill">Framer Motion</span>
+    <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-6">
+      <span class="skill" tabindex="0" aria-label="JavaScript skill">
+        JavaScript
+        <span class="skill-tooltip">Expert in ES6+, DOM manipulation, and asynchronous programming.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="React skill">
+        React
+        <span class="skill-tooltip">Building component-based UIs with hooks, context, and state management.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="Tailwind CSS skill">
+        Tailwind CSS
+        <span class="skill-tooltip">Rapidly designing responsive layouts using utility-first CSS framework.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="HTML5 skill">
+        HTML5
+        <span class="skill-tooltip">Semantic markup, accessibility standards, and SEO best practices.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="CSS3 skill">
+        CSS3
+        <span class="skill-tooltip">Flexbox, Grid, animations, and preprocessors like SASS.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="TypeScript skill">
+        TypeScript
+        <span class="skill-tooltip">Strong typing to improve code quality and maintainability.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="Git skill">
+        Git
+        <span class="skill-tooltip">Version control and collaboration using Git and GitHub workflows.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="Firebase skill">
+        Firebase
+        <span class="skill-tooltip">Backend services including authentication, hosting, and realtime database.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="Figma skill">
+        Figma
+        <span class="skill-tooltip">Designing UI mockups and prototypes for user testing and iteration.</span>
+      </span>
+      <span class="skill" tabindex="0" aria-label="Framer Motion skill">
+        Framer Motion
+        <span class="skill-tooltip">Creating smooth animations and transitions in React applications.</span>
+      </span>
     </div>
   </section>
 
@@ -161,9 +211,11 @@
           </svg>
           <h3 class="ml-3 text-xl font-semibold text-white">Portfolio Website</h3>
         </div>
-        <p class="text-purple-200">
+        <p class="text-purple-200 mb-4">
           A modern, responsive portfolio built with React, Tailwind CSS, and Framer Motion. Features smooth animations and intuitive navigation.
         </p>
+        <a href="https://yourportfolio.com" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Live</a> | 
+        <a href="https://github.com/yourusername/portfolio" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Source Code</a>
       </article>
 
       <article class="card p-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" tabindex="0" role="group" aria-label="Weather App project">
@@ -174,9 +226,74 @@
           </svg>
           <h3 class="ml-3 text-xl font-semibold text-white">Weather App</h3>
         </div>
-        <p class="text-purple-200">
-          Real-time weather updates with beautiful UI using external APIs and mobile-first design principles.
+        <p class="text-purple-200 mb-4">
+          Real-time weather app using OpenWeather API. Includes search, geolocation, and dynamic backgrounds matching current weather conditions.
         </p>
+        <a href="https://weatherapp.com" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Live</a> | 
+        <a href="https://github.com/yourusername/weather-app" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Source Code</a>
       </article>
 
-      <article class="card p-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900" tabindex="0" role
+      <article class="card p-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900" tabindex="0" role="group" aria-label="Task Manager project">
+        <div class="flex items-center mb-4 text-green-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4" />
+            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h3 class="ml-3 text-xl font-semibold text-white">Task Manager</h3>
+        </div>
+        <p class="text-purple-200 mb-4">
+          A full CRUD task manager app with drag-and-drop priority sorting and user authentication using Firebase.
+        </p>
+        <a href="https://taskmanager.com" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Live</a> | 
+        <a href="https://github.com/yourusername/task-manager" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Source Code</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-3xl mx-auto px-6 py-20 text-center" data-aos="fade-up" data-aos-duration="1200">
+    <h2 class="text-4xl font-extrabold mb-8 text-white">Get in Touch</h2>
+    <p class="mb-8 text-purple-200 text-lg">
+      Whether you want to collaborate on a project or just say hi, my inbox is always open!
+    </p>
+    <a href="mailto:your.email@example.com" class="btn-primary px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-600 inline-block mb-12" tabindex="0">
+      Email Me
+    </a>
+    <div class="flex justify-center space-x-8 text-purple-200 text-3xl">
+      <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" rel="noopener" class="hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lucide" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12a10 10 0 006.84 9.53c.5.09.68-.22.68-.48v-1.72c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.91-.63.07-.62.07-.62 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.64-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.02a9.56 9.56 0 012.5-.33c.85 0 1.7.12 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.39.2 2.41.1 2.67.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.91.68 1.84v2.73c0 .27.18.58.69.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" rel="noopener" class="hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lucide" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" rel="noopener" class="hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lucide" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Name. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 1000,
+      easing: 'ease-in-out',
+    });
+
+    // Optional: Toggle skill tooltip on keyboard focus
+    const skills = document.querySelectorAll('.skill');
+    skills.forEach(skill => {
+      skill.addEventListener('focus', () => {
+        skill.classList.add('active');
+      });
+      skill.addEventListener('blur', () => {
+        skill.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
