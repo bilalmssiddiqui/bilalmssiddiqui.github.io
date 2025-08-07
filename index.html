@@ -6,41 +6,43 @@
   <title>Bilal Mohammed Sajjad Siddiqui – Portfolio</title>
   <style>
     :root {
-      --primary: #1c1c1e;
+      --primary: #1e1e1e;
+      --secondary: #f9f9f9;
       --accent: #007aff;
-      --light: #f9f9f9;
+      --light-gray: #eaeaea;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary);
       color: var(--primary);
-      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
     header {
-      background: white;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 999;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
-      animation: fadeIn 1s ease-in;
+      color: var(--primary);
     }
 
     nav a {
@@ -48,101 +50,105 @@
       text-decoration: none;
       color: var(--primary);
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
       color: var(--accent);
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeUp 1s ease;
-    }
-
-    .title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 1rem;
-      font-weight: 600;
-    }
-
-    .entry {
-      margin-bottom: 2rem;
-      background: #fff;
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
-
-    .entry:hover {
-      transform: translateY(-4px);
-    }
-
-    .entry h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-
-    .entry p {
-      margin: 0.5rem 0 0 0;
-      font-size: 0.95rem;
-      color: #333;
-    }
-
     .hero {
+      padding: 8rem 2rem 4rem;
       text-align: center;
-      padding: 4rem 2rem 2rem;
-      background-color: #ffffff;
+      background-color: #fff;
+      animation: fadeIn 1s ease;
     }
 
     .hero img {
-      width: 160px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .hero h2 {
-      font-size: 2.5rem;
-      margin: 1rem 0 0.5rem;
+      font-size: 2.2rem;
+      margin-top: 1rem;
     }
 
-    .resume-btn {
-      margin-top: 1rem;
+    .hero p {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .hero a.resume-btn {
       display: inline-block;
-      padding: 0.6rem 1.2rem;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.4rem;
       background-color: var(--accent);
       color: white;
       text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
 
-    .resume-btn:hover {
+    .hero a.resume-btn:hover {
       background-color: #005ecb;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .entry {
+      background-color: #fff;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .entry:hover {
+      transform: translateY(-5px);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill {
+      background-color: var(--light-gray);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 500;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      background: #fff;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #666;
+      background: #fff;
+      margin-top: 4rem;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateX(-20px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -152,6 +158,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -159,72 +166,73 @@
   </header>
 
   <div class="hero">
-    <img src="https://avatars.githubusercontent.com/u/13823383?v=4" alt="Profile Photo" />
+    <img src="https://avatars.githubusercontent.com/u/13823383?v=4" alt="Bilal Siddiqui" />
     <h2>Bilal Mohammed Sajjad Siddiqui</h2>
-    <p>Simulation Engineer · Thermal CAE · Aerodynamics · Digital Transformation</p>
-    <a class="resume-btn" href="Bilal_Mohammed_Sajjad_Siddiqui_Resume.pdf" download>Download Resume</a>
+    <p>Simulation Engineer | Thermal CAE | Digital Innovation</p>
+    <a href="Bilal_Mohammed_Sajjad_Siddiqui_Resume.pdf" download class="resume-btn">Download Resume</a>
   </div>
 
   <section id="about">
     <h2 class="title">About Me</h2>
     <p>
-      A detail-oriented and versatile individual with experience in the automotive and energy sectors, having worked with Volvo Cars and Schneider Electric. My background includes design, simulation modelling, benchmarking, and digital transformation. I specialize in thermal CAE, aerodynamics, and fluid dynamics, and thrive in multicultural and innovative environments.
+      A detail-oriented and versatile individual with professional experience in the automotive and energy sectors, including Volvo Cars and Schneider Electric. Strong background in simulation, aerodynamics, fluid dynamics, and digital transformation.
     </p>
   </section>
 
   <section id="projects">
     <h2 class="title">Projects</h2>
     <div class="entry">
-      <h3>Business Jet Concept Design</h3>
-      <p>Designed a hydrogen-powered business jet with a focus on fuel efficiency and aerodynamics.</p>
+      <h3>Business Jet Concept</h3>
+      <p>Hydrogen-powered aircraft designed for optimized flight performance and fuel efficiency.</p>
     </div>
     <div class="entry">
       <h3>Chalmers Formula Student</h3>
-      <p>Developed a new rear diffuser design, increasing downforce by 17.9% and reducing drag by 8.1%.</p>
+      <p>Developed rear diffuser increasing downforce by 17.9% and reducing drag by 8.1%.</p>
     </div>
     <div class="entry">
-      <h3>SR-71 Engine Intake Analysis</h3>
-      <p>Analyzed supersonic intake flows using analytical and numerical methods to evaluate unstart behavior.</p>
+      <h3>SR-71 Engine Intake</h3>
+      <p>Analyzed supersonic intake performance through analytical and numerical methods.</p>
     </div>
-    <div class="entry">
-      <h3>FEM Study on CO2 Heat Exchanger</h3>
-      <p>Modeled a double-pipe heat exchanger with supercritical CO2 and validated with CFD data.</p>
-    </div>
-    <div class="entry">
-      <h3>AIAA DBF – Team Aeolus</h3>
-      <p>Contributed to flight optimization and aircraft design; finished 2nd globally in the design proposal phase.</p>
+  </section>
+
+  <section id="skills">
+    <h2 class="title">Skills</h2>
+    <div class="skills">
+      <div class="skill">Python</div>
+      <div class="skill">MATLAB</div>
+      <div class="skill">STAR-CCM+</div>
+      <div class="skill">ANSYS</div>
+      <div class="skill">NX</div>
+      <div class="skill">CATIA</div>
+      <div class="skill">TAITherm</div>
     </div>
   </section>
 
   <section id="education">
     <h2 class="title">Education</h2>
     <div class="entry">
-      <h3>MSc in Applied Mechanics</h3>
-      <p>Chalmers University of Technology, 2023–present · CGPA: 4.5/5</p>
+      <h3>MSc Applied Mechanics – Chalmers University</h3>
+      <p>2023 – Present · CGPA: 4.5/5</p>
     </div>
     <div class="entry">
-      <h3>BTech in Mechanical Engineering</h3>
-      <p>PES University, 2017–2021 · CGPA: 8.30/10</p>
+      <h3>BTech Mechanical – PES University</h3>
+      <p>2017 – 2021 · CGPA: 8.30/10</p>
     </div>
   </section>
 
   <section id="experience">
     <h2 class="title">Experience</h2>
     <div class="entry">
-      <h3>Master Thesis Student – Volvo Cars</h3>
-      <p>Simulation modeling of rear lamp temperatures using sun load data for the Volvo EX90 (2025–present).</p>
+      <h3>Volvo Cars – Master Thesis</h3>
+      <p>Rear lamp temperature simulation using sun load data (2025–Present).</p>
     </div>
     <div class="entry">
-      <h3>Battery Summer Intern – Volvo Cars</h3>
-      <p>Benchmarked EV batteries and evaluated ANSYS Discovery for cooling plate design (June–Aug 2024).</p>
+      <h3>Volvo Cars – Battery Intern</h3>
+      <p>Benchmarking and thermal modeling with ANSYS Discovery (2024).</p>
     </div>
     <div class="entry">
-      <h3>ERP Business Analyst – Schneider Electric</h3>
-      <p>Led MSCA implementation and E2E traceability systems for supply chain operations (2022–2023).</p>
-    </div>
-    <div class="entry">
-      <h3>Graduate Engineer Trainee – Schneider Electric</h3>
-      <p>Supported Oracle Supply Chain modules including Inventory and Order Management (2021–2022).</p>
+      <h3>Schneider Electric – ERP Analyst</h3>
+      <p>MSCA implementation and digital traceability project (2022–2023).</p>
     </div>
   </section>
 
@@ -238,7 +246,7 @@
   </section>
 
   <footer>
-    &copy; 2025 Bilal Mohammed Sajjad Siddiqui. All rights reserved.
+    &copy; 2025 Bilal Mohammed Sajjad Siddiqui. Made with clarity and purpose.
   </footer>
 </body>
 </html>
