@@ -1,13 +1,7 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Bilal Siddiqui — Portfolio (Template 2)</title>
-    <script type="module" crossorigin src="/assets/index-BY63umLN.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-wIHvtGfk.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  base: '/bilalmssiddiqui.github.io/', // your repo name
+  plugins: [react()],
+});
