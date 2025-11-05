@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --accent-from: #3b82f6;
+  --accent-to: #7c3aed;
+}
+
+html,body,#root{height:100%}
+body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; background: #0b0f14; color: #fff; }
+
+.bg-clip-text{background-clip:text}
+
+/* Perfectly aligned bullet list */
+.clean-list {
+  list-style-position: outside; /* keeps bullet outside text box */
+  margin-left: 1.25rem;         /* consistent left spacing */
+  padding-left: 0;              /* remove browser default */
+}
+
+.clean-list li {
+  margin-left: 0;               /* no extra left offset */
+  text-indent: 0;               /* neutralize any browser variation */
+  padding-left: 0.4rem;         /* tiny gap between bullet and text */
+}
+
+.clean-list li::marker {
+  color: #60a5fa;               /* soft blue bullet (optional) */
+}
