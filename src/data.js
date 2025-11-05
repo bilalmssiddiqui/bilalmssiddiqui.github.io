@@ -1,6 +1,9 @@
 // src/data.js
 import p_profile from "./assets/profile.jpeg";
 import FrejaReflection from "./assets/projects/FrejaReflection.jpg";
+import Freja from "./assets/education/Freja.jpg";
+import TP from "./assets/education/TP.jpg";
+import Tea from "./assets/volunteering/Tea.jpg";
 import DF_LIC_Z01 from "./assets/projects/DF_LIC_Z01.png";
 import DF_CFRP from "./assets/projects/DF_CFRP.jpg";
 import DF_Mold from "./assets/projects/DF_Mold.jpg";
@@ -40,6 +43,9 @@ import coughside from "./assets/projects/coughside.PNG";
 import CoverPicture_V2 from "./assets/projects/CoverPicture_V2.png";
 import ANSA_FrontMesh from "./assets/projects/ANSA_FrontMesh.png";
 import ElementPatches from "./assets/projects/ElementPatches.png";
+import AD_CP from "./assets/experience/AD_CP.png";
+import HT from "./assets/experience/HT.png";
+import Para from "./assets/experience/Para.png";
 import EmissT100 from "./assets/projects/EmissT100.png";
 import Solar410 from "./assets/projects/Solar410.png";
 import TAITherm_Sim1 from "./assets/projects/TAITherm_Sim1.png";
