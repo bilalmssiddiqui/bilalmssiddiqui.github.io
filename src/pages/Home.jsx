@@ -26,6 +26,7 @@ export default function Home() {
         </motion.p>
 
         <div className="flex gap-4 justify-center mb-12">
+          {/*
           <a
             href={SITE.resume}
             download
@@ -33,6 +34,7 @@ export default function Home() {
           >
             Download Resume
           </a>
+          */}
           <Link
             to="/projects"
             className="px-6 py-3 rounded-full border border-gray-700"

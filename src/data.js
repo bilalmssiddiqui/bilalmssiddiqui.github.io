@@ -66,7 +66,7 @@ export const SITE = {
   role: "Mechanical Engineer •  CFD • HVAC & Thermal Systems • Aerodynamics",
   email: "bilalmssiddiqui@gmail.com",
   location: "Göteborg, Sweden",
-  resume: "/resume.pdf",
+  //resume: "/resume.pdf",
   heroImage: heroImg
 };
 

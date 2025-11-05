@@ -15,9 +15,11 @@ export default function Navbar() {
           <NavLink to="/about" className={({isActive}) => isActive ? "text-white font-medium" : "text-gray-300 hover:text-white"}>About</NavLink>
           <NavLink to="/projects" className={({isActive}) => isActive ? "text-white font-medium" : "text-gray-300 hover:text-white"}>Projects</NavLink>
           <NavLink to="/contact" className={({isActive}) => isActive ? "text-white font-medium" : "text-gray-300 hover:text-white"}>Contact</NavLink>
+          {/*
           <a href={SITE.resume} download className="ml-4 inline-flex items-center px-4 py-1 rounded-full bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] text-black font-medium shadow-sm">
             Resume
           </a>
+          */}
         </div>
       </nav>
     </header>
