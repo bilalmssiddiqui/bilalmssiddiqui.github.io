@@ -20,7 +20,7 @@ import SR_71 from "./assets/projects/SR-71.png";
 import Inlet_shock_waves_at_Mach_2 from "./assets/projects/Inlet_shock_waves_at_Mach_2.jpg";
 import engine_mesh from "./assets/projects/engine_mesh.png";
 import BusinessJet from "./assets/projects/BusinessJet.png";
-import CoughSneeze from "./assets/projects/CoughSneeze.PNG";
+import CoughSneeze from "./assets/projects/CoughSneeze.png";
 import SneezeSide from "./assets/projects/SneezeSide.PNG";
 import FSI from "./assets/projects/FSI.PNG";
 import CFP_Case1_SP from "./assets/projects/CFP_Case1_SP.png";
