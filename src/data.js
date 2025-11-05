@@ -224,7 +224,7 @@ export const HOBBIES_EXTENDED = rawHobbies.map((item, index) => ({ ...item, id: 
 const rawProjects = [
   {
     id: 1,
-    title: "Formula Student – Chalmers Formula Student",
+    title: "Formula Student",
     summary:
       "Design and development of a formula-style racecar for the international Formula Student competition, focusing on aerodynamics and composite manufacturing.",
     tools:
