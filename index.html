@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bilal Siddiqui — Portfolio</title>
-    <script type="module" crossorigin src="/bilalmssiddiqui.github.io/assets/index-B7FeEPCE.js"></script>
-    <link rel="stylesheet" crossorigin href="/bilalmssiddiqui.github.io/assets/index-wIHvtGfk.css">
-  </head>
-  <body>
-    <div id="root"></div>
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-    <!-- Vite will replace this with the correct build output -->
-  </body>
-</html>
+export default defineConfig({
+  base: '/bilalmssiddiqui.github.io/', // GitHub Pages repo name
+  plugins: [react()],
+});
