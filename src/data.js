@@ -87,8 +87,8 @@ const rawExperience = [
       "Accelerated cross-team design iterations by more than 50 % by completing advanced Teamcenter PLM and CATIA V5 training, streamlining CAD data management and cutting design-change turnaround time in collaborative projects."
     ],
     media: [
-      { type: "image", src: "/src/assets/experience/AD_CP.png", caption: "Cooling plate design evaluation using ANSYS Discovery." },
-      { type: "image", src: "/src/assets/experience/HT.png", caption: "Heat transfer simulation between battery cells and cooling plate using ANSYS Discovery." }
+      { type: "image", src: AD_CP, caption: "Cooling plate design evaluation using ANSYS Discovery." },
+      { type: "image", src: HT, caption: "Heat transfer simulation between battery cells and cooling plate using ANSYS Discovery." }
     ],
     links: [
       { url: "https://www.example.com/thermal-paper", caption: "View related publication" }
@@ -145,8 +145,8 @@ const rawEducation = [
       "Master’s thesis focused on heat transfer optimization using CFD."
     ],
     media: [
-      { type: "image", src: "/src/assets/education/Freja.jpg", caption: "Formula Student" },
-      { type: "image", src: "/src/assets/education/TP.jpg", caption: "Chalmers Formula Student 2024" },
+      { type: "image", src: Freja, caption: "Formula Student" },
+      { type: "image", src: TP, caption: "Chalmers Formula Student 2024" },
       { type: "link", url: "https://odr.chalmers.se/items/00ba9309-9c38-4be2-b0ce-b5aa47fbc814", caption: "Master Thesis" }
     ],
 
@@ -183,7 +183,7 @@ const rawVolunteering = [
       "The goal was to increase motivation among students from relatively less exposed academic environments to pursue fulfilling and ambitious careers."
     ],
     media: [
-      { type: "image", src: "/src/assets/volunteering/Tea.jpg", caption: "Mentoring session" },
+      { type: "image", src: Tea, caption: "Mentoring session" },
       { type: "link", url: "https://www.svt.se/nyheter/inrikes/barn-fran-bergsjon-bygger-raketer-pa-chalmers", caption: "Program Overview" }
     ]
   },
