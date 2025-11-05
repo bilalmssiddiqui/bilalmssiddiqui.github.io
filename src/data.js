@@ -20,7 +20,7 @@ import SR_71 from "./assets/projects/SR-71.png";
 import Inlet_shock_waves_at_Mach_2 from "./assets/projects/Inlet_shock_waves_at_Mach_2.jpg";
 import engine_mesh from "./assets/projects/engine_mesh.png";
 import BusinessJet from "./assets/projects/BusinessJet.png";
-import CoughSneeze from "./assets/projects/CoughSneeze.png";
+//import CoughSneeze from "./assets/projects/CoughSneeze.png";
 import SneezeSide from "./assets/projects/SneezeSide.PNG";
 import FSI from "./assets/projects/FSI.PNG";
 import CFP_Case1_SP from "./assets/projects/CFP_Case1_SP.png";
@@ -411,7 +411,7 @@ Trackside flow visualization confirmed CFD-predicted performance improvements.`,
     "STAR-CCM+ | Lagrangian Multiphase | RANS (k-ω SST) | Implicit Unsteady | Rossin–Rammler Distribution | CFD Post-Processing",
 
   media: [
-    { src: CoughSneeze, caption: "Cough particle dispersion at room temperature." },
+    { src: SneezeSide, caption: "Cough particle dispersion at room temperature." },
     { src: FSEast, caption: "Top-view particle field showing plume extension after a sneeze." },
   ],
 
@@ -420,7 +420,7 @@ Trackside flow visualization confirmed CFD-predicted performance improvements.`,
       title: "Project Background:",
       text: `This project investigated the airborne transmission of respiratory droplets following a cough or sneeze, motivated by the need to understand particle-borne pathogen spread in indoor environments. The study modeled droplet trajectories and evaporation behavior under varying temperature and humidity conditions to determine exposure risk and spatial concentration distribution.`,
       media: [
-        { src: CoughSneeze, caption: "Air-borne respiratory pathogens spread through coughing and sneezing." },
+        { src: SneezeSide, caption: "Air-borne respiratory pathogens spread through coughing and sneezing." },
       ],
     },
     {
