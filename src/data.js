@@ -89,7 +89,7 @@ const rawExperience = [
     period: "June 2024 – August 2024",
     points: [
       "Enhanced efficiency by 35% by reducing pressure drop through iterative cooling plate design changes using ANSYS Discovery.",
-      "Benchmarked battery packs from competitor vehicles across key metrics, including NVH study and thermal management, conducting detailed teardown analyses to identify design strengths and innovation opportunities.",
+      "Benchmarked battery packs from competitor vehicles across key metrics, including HVAC, NVH, and thermal management, conducting detailed teardown analyses to identify design strengths and innovation opportunities.",
       "Accelerated cross-team design iterations by more than 50 % by completing advanced Teamcenter PLM and CATIA V5 training, streamlining CAD data management and cutting design-change turnaround time in collaborative projects."
     ],
     media: [
@@ -153,7 +153,8 @@ const rawEducation = [
     media: [
       { type: "image", src: Freja, caption: "Formula Student" },
       { type: "image", src: TP, caption: "Chalmers Formula Student 2024" },
-      { type: "link", url: "https://odr.chalmers.se/items/00ba9309-9c38-4be2-b0ce-b5aa47fbc814", caption: "Master Thesis" }
+      { type: "link", url: "https://odr.chalmers.se/items/00ba9309-9c38-4be2-b0ce-b5aa47fbc814", caption: "Master Thesis" },
+      { type: "link", url: "https://drive.google.com/file/d/1aZamtPCr9CZkZFNMHsMGHJ-cBxhaFRix/view?usp=drive_link", caption: "Formula Student Engineering Design Report" }
     ],
 
   },
@@ -323,10 +324,10 @@ Trackside flow visualization confirmed CFD-predicted performance improvements.`,
       "Placed 3rd overall in the Driverless category at Formula Student East 2024.",
     ],
 
-    //docs: [
-    //  { name: "Engineering Design Report", url: "#" },
+    docs: [
+      { name: "Engineering Design Report", url: "https://drive.google.com/file/d/1aZamtPCr9CZkZFNMHsMGHJ-cBxhaFRix/view?usp=drive_link" },
     //  { name: "Aerodynamics Validation Summary", url: "#" },
-    //],
+    ],
 
     external: [
       { name: "Chalmers Formula Student", url: "https://www.chalmersformulastudent.se/" },
