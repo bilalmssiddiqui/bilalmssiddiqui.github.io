@@ -20,9 +20,12 @@ export default function About() {
     }),
   };
 
+  const imageClasses =
+    "w-full aspect-[4/3] sm:aspect-[16/9] object-cover rounded-xl shadow-md hover:shadow-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300 ease-in-out";
+
   return (
     <section className="max-w-6xl mx-auto py-20 px-6 text-white">
-      {/* Header */}
+      {/* ---------- Header ---------- */}
       <div className="flex flex-col md:flex-row items-center gap-10 mb-20">
         <motion.div
           className="w-48 h-48 rounded-full overflow-hidden shadow-xl border-2 border-gray-700"
@@ -35,10 +38,11 @@ export default function About() {
             className="w-full h-full object-cover"
           />
         </motion.div>
+
         <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0.2}>
           <h2 className="text-4xl font-bold mb-3">About Me</h2>
           <p className="text-gray-300 mb-4 leading-relaxed">{ABOUT.summary}</p>
-          <ul className="list-disc list-inside text-white-300 mt-2 space-y-1">
+          <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
             {ABOUT.bullets.map((b, i) => (
               <li key={i}>{b}</li>
             ))}
@@ -46,7 +50,7 @@ export default function About() {
         </motion.div>
       </div>
 
-      {/* Experience Timeline */}
+      {/* ---------- Experience Timeline ---------- */}
       <motion.div className="mt-20" initial="hidden" whileInView="visible" variants={fadeUp}>
         <h3 className="text-2xl font-semibold mb-10 text-blue-400">Experience</h3>
         <div className="relative border-l border-gray-700 ml-6">
@@ -62,22 +66,22 @@ export default function About() {
                 </div>
                 <span className="text-sm text-gray-500">{exp.period}</span>
               </div>
-              {exp.points && exp.points.length > 0 && (
-                <ul className="list-disc list-inside text-white-300 mt-2 space-y-1">
+              {exp.points?.length > 0 && (
+                <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
                   {exp.points.map((p, idx) => (
                     <li key={idx}>{p}</li>
                   ))}
                 </ul>
               )}
-              {exp.media && exp.media.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+              {exp.media?.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
                   {exp.media.map((m, idx) =>
                     m.type === "image" ? (
                       <img
                         key={idx}
                         src={m.src}
                         alt={m.caption}
-                        className="rounded-md cursor-pointer hover:scale-[1.03] transition"
+                        className={imageClasses}
                         onClick={() => setSelected(m)}
                       />
                     ) : (
@@ -99,7 +103,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Education Timeline */}
+      {/* ---------- Education Timeline ---------- */}
       <motion.div className="mt-20" initial="hidden" whileInView="visible" variants={fadeUp}>
         <h3 className="text-2xl font-semibold mb-10 text-blue-400">Education</h3>
         <div className="relative border-l border-gray-700 ml-6">
@@ -115,22 +119,22 @@ export default function About() {
                 </div>
                 <span className="text-sm text-gray-500">{edu.period}</span>
               </div>
-              {edu.points && edu.points.length > 0 && (
-                <ul className="list-disc list-inside text-white-300 mt-2 space-y-1">
+              {edu.points?.length > 0 && (
+                <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
                   {edu.points.map((p, idx) => (
                     <li key={idx}>{p}</li>
                   ))}
                 </ul>
               )}
-              {edu.media && edu.media.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+              {edu.media?.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
                   {edu.media.map((m, idx) =>
                     m.type === "image" ? (
                       <img
                         key={idx}
                         src={m.src}
                         alt={m.caption}
-                        className="rounded-md cursor-pointer hover:scale-[1.03] transition"
+                        className={imageClasses}
                         onClick={() => setSelected(m)}
                       />
                     ) : (
@@ -152,23 +156,28 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Hobbies & Interests */}
+      {/* ---------- Hobbies & Interests ---------- */}
       <motion.div className="mt-20" initial="hidden" whileInView="visible" variants={fadeUp}>
         <h3 className="text-2xl font-semibold mb-10 text-blue-400">Hobbies & Interests</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {HOBBIES_EXTENDED.map((h, i) => (
-            <motion.div key={h.id} custom={i} variants={fadeUp} className="p-6 bg-gray-800 rounded-xl shadow-lg">
+            <motion.div
+              key={h.id}
+              custom={i}
+              variants={fadeUp}
+              className="p-6 bg-gray-800 rounded-xl shadow-lg"
+            >
               <h4 className="text-xl font-semibold mb-2">{h.name}</h4>
               <p className="text-gray-300 mb-3">{h.description}</p>
-              {h.media && h.media.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {h.media?.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {h.media.map((m, idx) =>
                     m.type === "image" ? (
                       <img
                         key={idx}
                         src={m.src}
                         alt={m.caption}
-                        className="rounded-md cursor-pointer hover:scale-[1.03] transition"
+                        className={imageClasses}
                         onClick={() => setSelected(m)}
                       />
                     ) : (
@@ -190,9 +199,11 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Volunteering / Social Work */}
+      {/* ---------- Volunteering / Social Work ---------- */}
       <motion.div className="mt-20" initial="hidden" whileInView="visible" variants={fadeUp}>
-        <h3 className="text-2xl font-semibold mb-10 text-blue-400">Volunteering & Social Work</h3>
+        <h3 className="text-2xl font-semibold mb-10 text-blue-400">
+          Volunteering & Social Work
+        </h3>
         <div className="relative border-l border-gray-700 ml-6">
           {VOLUNTEERING.map((vol, i) => (
             <motion.div key={vol.id} custom={i} variants={fadeUp} className="mb-10 ml-6">
@@ -200,14 +211,14 @@ export default function About() {
               <div className="flex justify-between items-center flex-wrap">
                 <div>
                   <h4 className="text-lg font-semibold">{vol.title}</h4>
-                  <p className="text-gray-400 italic">{vol.org} • {vol.location}</p>
+                  <p className="text-gray-400 italic">
+                    {vol.org} • {vol.location}
+                  </p>
                 </div>
                 <span className="text-sm text-gray-500">{vol.period}</span>
               </div>
-
-              {/* Render points or description */}
-              {vol.points && vol.points.length > 0 ? (
-                <ul className="list-disc list-inside text-white-300 mt-2 space-y-1">
+              {vol.points?.length ? (
+                <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
                   {vol.points.map((p, idx) => (
                     <li key={idx}>{p}</li>
                   ))}
@@ -215,17 +226,15 @@ export default function About() {
               ) : (
                 <p className="text-gray-300 mt-2">{vol.description}</p>
               )}
-
-              {/* Media */}
-              {vol.media && vol.media.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+              {vol.media?.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
                   {vol.media.map((m, idx) =>
                     m.type === "image" ? (
                       <img
                         key={idx}
                         src={m.src}
                         alt={m.caption}
-                        className="rounded-md cursor-pointer hover:scale-[1.03] transition"
+                        className={imageClasses}
                         onClick={() => setSelected(m)}
                       />
                     ) : (
@@ -247,7 +256,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Lightbox Viewer */}
+      {/* ---------- Lightbox Viewer ---------- */}
       {selected && selected.type === "image" && (
         <div
           onClick={() => setSelected(null)}
