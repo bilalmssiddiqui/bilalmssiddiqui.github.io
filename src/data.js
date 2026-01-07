@@ -43,7 +43,7 @@ import coughside from "./assets/projects/coughside.PNG";
 import CoverPicture_V2 from "./assets/projects/CoverPicture_V2.png";
 import ANSA_FrontMesh from "./assets/projects/ANSA_FrontMesh.png";
 import ElementPatches from "./assets/projects/ElementPatches.png";
-import AD_CP from "./assets/experience/AD_CP.png";
+import LemonClipped from "./assets/experience/LemonClipped.png";
 import HT from "./assets/experience/HT.png";
 import Para from "./assets/experience/Para.png";
 import EmissT100 from "./assets/projects/EmissT100.png";
@@ -93,7 +93,7 @@ const rawExperience = [
       "Accelerated cross-team design iterations by more than 50 % by completing advanced Teamcenter PLM and CATIA V5 training, streamlining CAD data management and cutting design-change turnaround time in collaborative projects."
     ],
     media: [
-      { type: "image", src: AD_CP, caption: "Cooling plate design evaluation using ANSYS Discovery." },
+      { type: "image", src: LemonClipped, caption: "Cooling plate design evaluation using ANSYS Discovery." },
       { type: "image", src: HT, caption: "Heat transfer simulation between battery cells and cooling plate using ANSYS Discovery." }
     ],
     links: [
