@@ -4,30 +4,33 @@ import { motion } from "framer-motion";
 export default function ProjectCard({ project, onOpen }) {
   return (
     <motion.div
-      className="bg-gray-800 rounded-2xl p-5 shadow-lg flex flex-col justify-between hover:shadow-xl transition hover:-translate-y-1"
+      className="theme-card rounded-2xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.4 }}
     >
       {project.media && project.media[0] && (
-        <img
-          src={project.media[0].src}
-          alt={project.title}
-          className="rounded-xl mb-4 h-48 w-full object-cover"
-        />
+        <div className="overflow-hidden">
+          <img
+            src={project.media[0].src}
+            alt={project.title}
+            className="h-48 w-full object-cover hover:scale-[1.03] transition-transform duration-300"
+          />
+        </div>
       )}
-      <div>
-        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+      <div className="flex flex-col flex-1 p-5">
+        <h3 className="text-base font-semibold mb-1.5">{project.title}</h3>
+        <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "var(--text-muted)" }}>
           {project.summary}
         </p>
+        <button
+          onClick={() => onOpen(project)}
+          className="self-start text-xs font-semibold px-4 py-2 rounded-lg bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] text-white hover:opacity-90 transition"
+        >
+          View Details →
+        </button>
       </div>
-      <button
-        onClick={() => onOpen(project)}
-        className="mt-auto bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] text-white font-medium py-2 px-4 rounded-lg hover:opacity-90 transition self-start"
-      >
-        View Details
-      </button>
     </motion.div>
   );
 }

@@ -75,13 +75,30 @@ export const ABOUT = {
   summary: `Performance-driven mechanical engineer with hands-on experience in CFD and thermal simulation, aerodynamic concept design, and validation. I design and validate systems that balance efficiency with innovation. Adept in automating analysis and optimization workflows using Python and MATLAB.`,
   bullets: [
     "M.Sc. Applied Mechanics – Chalmers University of Technology (2023 – 2025).",
-    "Previously: Thermal CAE roles at Volvo Cars; ERP Analyst at Schneider Electric.",
-    "Core competencies: STAR-CCM+, ANSYS, Siemens NX, CATIA, TAITherm, Python, MATLAB,"
+    "Previously: Thermal CAE Engineer at Volvo Cars; ERP Analyst at Schneider Electric.",
+    "Core competencies: STAR-CCM+, CFD, ANSYS Structural and Fluent, Siemens NX, CATIA V5, TAITherm, ANSA, META, Python, MATLAB,"
   ]
 };
 
 // ---------------- EXPERIENCE ----------------
 const rawExperience = [
+  {
+    title: "Project Assistant",
+    org: "Chalmers University of Technology",
+    location: "Gothenburg, Sweden",
+    period: "February 2026 – Present",
+    points: [
+      "Developing high-performance marine propulsors for next-generation electric vessels using CFD.",
+      "Focusing on maximising hydrodynamic efficiency to support the transition toward sustainable, long-range marine transport."
+    ],
+    //media: [
+    //  { type: "image", src: LemonClipped, caption: "Cooling plate design evaluation using ANSYS Discovery." },
+    //  { type: "image", src: HT, caption: "Heat transfer simulation between battery cells and cooling plate using ANSYS Discovery." }
+    //],
+    //links: [
+    //  { url: "https://www.example.com/thermal-paper", caption: "View related publication" }
+    //]
+  },
   {
     title: "Thermal CAE Engineer - Battery Systems",
     org: "Volvo Cars",

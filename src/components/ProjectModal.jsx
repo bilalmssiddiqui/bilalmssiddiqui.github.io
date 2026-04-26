@@ -9,130 +9,158 @@ export default function ProjectModal({ project, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center overflow-y-auto"
+        className="fixed inset-0 bg-black/75 z-50 flex justify-center items-start overflow-y-auto backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        onClick={(e) => e.target === e.currentTarget && onClose()}
       >
-        <div className="bg-gray-900 rounded-2xl max-w-5xl w-full m-8 p-6 relative shadow-2xl">
+        <div
+          className="theme-card rounded-2xl max-w-4xl w-full m-8 p-7 relative"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-300 hover:text-white text-xl"
+            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full text-sm hover:opacity-80 transition"
+            style={{ color: "var(--text-muted)", background: "var(--bg)", border: "1px solid var(--border)" }}
+            aria-label="Close"
           >
             ✕
           </button>
 
+          {/* Title */}
           <motion.h2
-            className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)]"
-            initial={{ opacity: 0, y: -20 }}
+            className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] pr-10"
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.35 }}
           >
             {project.title}
           </motion.h2>
 
-          <p className="text-gray-300 mb-8">{project.summary}</p>
+          <p className="text-sm leading-relaxed mb-7" style={{ color: "var(--text-muted)" }}>
+            {project.summary}
+          </p>
 
           {/* Media Gallery */}
-          {project.media && (
+          {project.media && project.media.length > 0 && (
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-7"
               initial="hidden"
-              whileInView="visible"
+              animate="visible"
               variants={{
                 hidden: {},
-                visible: { transition: { staggerChildren: 0.1 } },
+                visible: { transition: { staggerChildren: 0.08 } },
               }}
             >
               {project.media.map((m, i) => (
-                <motion.img
+                <motion.div
                   key={i}
-                  src={m.src}
-                  alt={m.caption}
-                  className="rounded-lg cursor-pointer hover:scale-[1.03] transition"
+                  className="rounded-xl overflow-hidden cursor-pointer"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
                   onClick={() => setSelectedImage(m.src)}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                />
+                >
+                  <img
+                    src={m.src}
+                    alt={m.caption}
+                    className="w-full h-36 object-cover hover:scale-[1.04] transition-transform duration-300"
+                  />
+                </motion.div>
               ))}
             </motion.div>
           )}
 
           {/* Features */}
           {project.features && (
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-2 text-blue-400">
+            <div className="mb-7">
+              <h3 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--accent-from)" }}>
                 Key Features
               </h3>
-              <ul className="list-disc clean-list text-gray-300 space-y-1">
+              <ul className="space-y-2">
                 {project.features.map((f, i) => (
-                  <li key={i}>{f}</li>
+                  <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: "var(--text-muted)" }}>
+                    <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-from)" }}></span>
+                    {f}
+                  </li>
                 ))}
               </ul>
             </div>
           )}
 
-          {/* Docs and Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          {/* Docs & Links */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-5" style={{ borderTop: "1px solid var(--border)" }}>
             <div>
-              <h4 className="text-lg font-semibold mb-2 text-blue-400">
+              <h4 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--accent-from)" }}>
                 Documents
               </h4>
               {project.docs?.length ? (
-                project.docs.map((d, i) => (
-                  <a
-                    key={i}
-                    href={d.url}
-                    className="block text-blue-400 hover:underline"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    📄 {d.name}
-                  </a>
-                ))
+                <div className="space-y-1.5">
+                  {project.docs.map((d, i) => (
+                    <a
+                      key={i}
+                      href={d.url}
+                      className="flex items-center gap-2 text-sm hover:opacity-80 transition"
+                      style={{ color: "var(--accent-from)" }}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>📄</span> {d.name}
+                    </a>
+                  ))}
+                </div>
               ) : (
-                <p className="text-gray-500 text-sm">No documents added.</p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>No documents added.</p>
               )}
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-2 text-blue-400">
+              <h4 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--accent-from)" }}>
                 External Links
               </h4>
               {project.external?.length ? (
-                project.external.map((l, i) => (
-                  <a
-                    key={i}
-                    href={l.url}
-                    className="block text-blue-400 hover:underline"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    🔗 {l.name}
-                  </a>
-                ))
+                <div className="space-y-1.5">
+                  {project.external.map((l, i) => (
+                    <a
+                      key={i}
+                      href={l.url}
+                      className="flex items-center gap-2 text-sm hover:opacity-80 transition"
+                      style={{ color: "var(--accent-from)" }}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>🔗</span> {l.name}
+                    </a>
+                  ))}
+                </div>
               ) : (
-                <p className="text-gray-500 text-sm">No external links.</p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>No external links.</p>
               )}
             </div>
           </div>
         </div>
 
         {/* Lightbox */}
-        {selectedImage && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[60]"
-            onClick={() => setSelectedImage(null)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <img
-              src={selectedImage}
-              alt="Full view"
-              className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl"
-            />
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              className="fixed inset-0 bg-black/90 flex items-center justify-center z-[60] backdrop-blur-sm"
+              onClick={() => setSelectedImage(null)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.img
+                src={selectedImage}
+                alt="Full view"
+                className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl"
+                initial={{ scale: 0.92, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.25 }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </AnimatePresence>
   );
