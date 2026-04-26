@@ -57,15 +57,7 @@ export default function Navbar() {
             Resume
           </a>
           */}
-
-          {/*<button
-            onClick={toggleTheme}
-            className="theme-toggle ml-1"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
-          */}
+          
         </div>
       </nav>
     </header>
