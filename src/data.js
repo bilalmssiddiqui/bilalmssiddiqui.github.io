@@ -118,33 +118,48 @@ const rawExperience = [
       { url: "https://www.example.com/thermal-paper", caption: "View related publication" }
     ]
   },
-  {
-    title: "ERP Business Analyst",
-    org: "Schneider Electric",
-    location: "Bangalore, India",
-    period: "October 2022 - August 2023",
-    points: [
-      "Delivered USD 12,000+ in cost savings by implementing the Mobile Supply Chain Application, driving alignment and efficiency across cross-functional teams, acting as the single point of contact.",
-      "Established 100% end-to-end product traceability at the BEF plant in Bangalore by designing and deploying the Pallet Tracking System, enabling real-time product monitoring from the shop floor to the customer.",
-      "Reduced month-end system downtime by 65% by developing remediation scripts with the help of root cause analysis for recurring Supply Chain and Warehousing issues, preventing disruptions and boosting efficiency. "
-    ],
+  //{
+  //  title: "ERP Business Analyst",
+  //  org: "Schneider Electric",
+  //  location: "Bangalore, India",
+  //  period: "October 2022 - August 2023",
+  //  points: [
+  //    "Delivered USD 12,000+ in cost savings by implementing the Mobile Supply Chain Application, driving alignment and efficiency across cross-functional teams, acting as the single point of contact.",
+  //    "Established 100% end-to-end product traceability at the BEF plant in Bangalore by designing and deploying the Pallet Tracking System, enabling real-time product monitoring from the shop floor to the customer.",
+  //    "Reduced month-end system downtime by 65% by developing remediation scripts with the help of root cause analysis for recurring Supply Chain and Warehousing issues, preventing disruptions and boosting efficiency. "
+  //  ],
     //media: [
     //  { type: "image", src: "/src/assets/experience/lab_photo.jpg", caption: "Lab experiment setup" }
     //],
     //links: [
     //  { url: "https://github.com/energytechlabs/thermal", caption: "GitHub repository" }
     //]
-  },
+  //},
 
+  //{
+  //  title: "Graduate Engineer Trainee",
+  // org: "Schneider Electric",
+  //  location: "Bangalore, India",
+  //  period: "August 2021 - October 2022",
+  //  points: [
+  //    "Eliminated frequent system and process errors by proactive resolution and monitoring alerts, cutting monthly support tickets by 10%, and ensuring smoother operations.",
+  //    "Developed strong leadership and interpersonal skills by driving automation and innovation initiatives in a team of 40+ colleagues.",
+  //    "Validated system reliability during platform upgrade by testing 100+ programs and helping fix subsequent issues, ensuring seamless operation and minimising post-upgrade issues."
+  //  ],
+    //media: [
+    //  { type: "image", src: "/src/assets/experience/lab_photo.jpg", caption: "Lab experiment setup" }
+    //],
+    //links: [
+    //  { url: "https://github.com/energytechlabs/thermal", caption: "GitHub repository" }
+    //]
+  //},
   {
-    title: "Graduate Engineer Trainee",
+    title: "Engineer - Secure Power ERP System",
     org: "Schneider Electric",
     location: "Bangalore, India",
-    period: "August 2021 - October 2022",
+    period: "August 2021 - August 2023",
     points: [
-      "Eliminated frequent system and process errors by proactive resolution and monitoring alerts, cutting monthly support tickets by 10%, and ensuring smoother operations.",
-      "Developed strong leadership and interpersonal skills by driving automation and innovation initiatives in a team of 40+ colleagues.",
-      "Validated system reliability during platform upgrade by testing 100+ programs and helping fix subsequent issues, ensuring seamless operation and minimising post-upgrade issues."
+      "Delivered USD 12,000+ in cost savings by integrating the Oracle Mobile Supply Chain Application, and designing the Pallet Tracking System; establishing 100% product traceability across organisations."
     ],
     //media: [
     //  { type: "image", src: "/src/assets/experience/lab_photo.jpg", caption: "Lab experiment setup" }
