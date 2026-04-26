@@ -14,7 +14,7 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
       >
         <p className="text-xs uppercase tracking-widest mb-3 font-medium" style={{ color: "var(--accent-from)" }}>
-          Work
+          
         </p>
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)]">
           Projects
