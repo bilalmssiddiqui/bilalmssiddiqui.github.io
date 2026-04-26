@@ -16,7 +16,7 @@ export default function Home() {
           className="text-xs uppercase tracking-widest mb-5 font-medium"
           style={{ color: "var(--accent-from)" }}
         >
-          Portfolio
+          
         </motion.p>
 
         <motion.h1

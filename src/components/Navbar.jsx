@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SITE } from "../data";
-import { useTheme } from "../context/ThemeContext";
+//import { useTheme } from "../context/ThemeContext";
 
 function SunIcon() {
   return (
@@ -58,13 +58,14 @@ export default function Navbar() {
           </a>
           */}
 
-          <button
+          {/*<button
             onClick={toggleTheme}
             className="theme-toggle ml-1"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
+          */}
         </div>
       </nav>
     </header>

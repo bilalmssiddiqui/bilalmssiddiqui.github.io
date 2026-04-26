@@ -63,8 +63,9 @@ const dummyModel = "/models/dummy.glb";
 // ---------------- SITE & ABOUT ----------------
 export const SITE = {
   name: "Bilal Mohammed Sajjad Siddiqui",
-  role: "Mechanical Engineer •  CFD • HVAC & Thermal Systems • Aerodynamics",
+  role: "Mechanical Engineer •  CFD • Thermo-Fluids • Aerodynamics",
   email: "bilalmssiddiqui@gmail.com",
+  linkedin: "https://www.linkedin.com/in/bilalmssiddiqui/",
   location: "Göteborg, Sweden",
   //resume: "/resume.pdf",
   heroImage: heroImg
@@ -697,4 +698,3 @@ export const PROJECTS = rawProjects.map((item, index) => ({
   ...item,
   id: index + 1
 }));
-

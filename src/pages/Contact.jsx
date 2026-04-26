@@ -48,7 +48,7 @@ export default function Contact() {
         </p>
         <h2 className="text-4xl font-bold mb-3">Contact</h2>
         <p className="text-sm leading-relaxed mb-10" style={{ color: "var(--text-muted)" }}>
-          I'm open to collaboration, internships, and research discussions. Feel free to reach out.
+          I am open to discuss new projects and opportunities, feel free to reach out!
         </p>
       </motion.div>
 
